@@ -1,0 +1,5262 @@
+<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>未来飞行 · 航空航天无人系统工程画册 (50P完整版)</title>
+        <style>
+            
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+    @page {
+        size: 297mm 210mm;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        background-color: #06090e;
+        color: #e2e8f0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page {
+        width: 297mm;
+        height: 210mm;
+        page-break-after: always;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 30%, #0d131f 0%, #06090e 100%);
+        padding: 10mm 12mm;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 科技感背景网格 */
+    .tech-grid-overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            linear-gradient(rgba(0, 240, 255, 0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 240, 255, 0.025) 1px, transparent 1px);
+        background-size: 15mm 15mm;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* 页面四角科技卡槽准星 */
+    .hud-corner {
+        position: absolute;
+        width: 14mm;
+        height: 14mm;
+        pointer-events: none;
+        z-index: 2;
+    }
+    .hud-corner.tl { top: 6mm; left: 6mm; border-top: 1.5px solid #00f0ff; border-left: 1.5px solid #00f0ff; }
+    .hud-corner.tr { top: 6mm; right: 6mm; border-top: 1.5px solid #00f0ff; border-right: 1.5px solid #00f0ff; }
+    .hud-corner.bl { bottom: 6mm; left: 6mm; border-bottom: 1.5px solid #00f0ff; border-left: 1.5px solid #00f0ff; }
+    .hud-corner.br { bottom: 6mm; right: 6mm; border-bottom: 1.5px solid #00f0ff; border-right: 1.5px solid #00f0ff; }
+
+    /* 顶部航电状态栏 */
+    .page-header {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+        padding-bottom: 2mm;
+        margin-bottom: 3mm;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 8.5pt;
+        letter-spacing: 1px;
+        color: #7dd3fc;
+    }
+    .page-header .left-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .page-header .badge {
+        background: rgba(0, 240, 255, 0.12);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        padding: 1px 6px;
+        border-radius: 2px;
+        color: #38bdf8;
+        font-weight: bold;
+    }
+    .page-header .center-meta {
+        color: #94a3b8;
+        letter-spacing: 2px;
+    }
+    .page-header .right-meta {
+        color: #38bdf8;
+    }
+
+    /* 底部打印与页码指示栏 */
+    .page-footer {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(0, 240, 255, 0.2);
+        padding-top: 2mm;
+        margin-top: auto;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 8pt;
+        color: #64748b;
+    }
+    .page-footer .print-indicator {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(0, 240, 255, 0.3);
+        padding: 2px 10px;
+        border-radius: 3px;
+        color: #38bdf8;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+    }
+    .page-footer .page-number {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #00f0ff;
+        letter-spacing: 2px;
+    }
+
+    /* ==========================================================
+       正面大图页 (OBVERSE PAGE) 专用样式
+       ========================================================== */
+    .obverse-content {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .obverse-hero-viewport {
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at center, #ffffff 0%, #edf2f7 65%, #cbd5e1 100%);
+        border-radius: 6px;
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        box-shadow: 0 0 30px rgba(0, 240, 255, 0.15) inset, 0 10px 25px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        margin: 1mm 0 3mm 0;
+        padding: 5mm;
+    }
+    .obverse-hero-viewport .viewport-grid {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            linear-gradient(rgba(0, 50, 100, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 50, 100, 0.04) 1px, transparent 1px);
+        background-size: 10mm 10mm;
+        pointer-events: none;
+    }
+    .obverse-hero-viewport .crosshair {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+        opacity: 0.35;
+    }
+    .obverse-hero-viewport .crosshair.c-tl { top: 8px; left: 8px; border-top: 1px solid #0284c7; border-left: 1px solid #0284c7; }
+    .obverse-hero-viewport .crosshair.c-br { bottom: 8px; right: 8px; border-bottom: 1px solid #0284c7; border-right: 1px solid #0284c7; }
+
+    .obverse-hero-viewport img {
+        max-width: 95%;
+        max-height: 94%;
+        object-fit: contain;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.25));
+    }
+    .obverse-title-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        background: rgba(11, 17, 28, 0.85);
+        border: 1px solid rgba(0, 240, 255, 0.25);
+        border-radius: 4px;
+        padding: 2.5mm 4mm;
+    }
+    .obverse-title-bar .title-group h2 {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 15pt;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    }
+    .obverse-title-bar .title-group .sub-name {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 10pt;
+        color: #38bdf8;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+    }
+    .obverse-title-bar .title-group .tagline {
+        font-size: 8.5pt;
+        color: #94a3b8;
+        margin-top: 1px;
+    }
+    .obverse-capsules {
+        display: flex;
+        gap: 3mm;
+    }
+    .capsule {
+        background: rgba(0, 240, 255, 0.08);
+        border: 1px solid rgba(0, 240, 255, 0.35);
+        border-radius: 3px;
+        padding: 2px 7px;
+        text-align: right;
+    }
+    .capsule .cap-lbl {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 6.5pt;
+        color: #7dd3fc;
+        display: block;
+    }
+    .capsule .cap-val {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 10pt;
+        font-weight: 700;
+        color: #00f0ff;
+    }
+
+    /* ==========================================================
+       背面介绍页 (REVERSE PAGE) 专用样式
+       ========================================================== */
+    .reverse-content {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 4mm;
+        margin: 1mm 0 2mm 0;
+    }
+    .reverse-left-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .prod-intro-box {
+        background: rgba(15, 23, 42, 0.65);
+        border-left: 3px solid #00f0ff;
+        padding: 2.5mm 3.5mm;
+        border-radius: 0 4px 4px 0;
+        margin-bottom: 2mm;
+    }
+    .prod-intro-box h2 {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 13pt;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 1px;
+    }
+    .prod-intro-box .code-tag {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 8pt;
+        color: #38bdf8;
+        margin-bottom: 1.5mm;
+        display: block;
+    }
+    .prod-intro-box p {
+        font-size: 8.5pt;
+        line-height: 1.45;
+        color: #cbd5e1;
+        text-align: justify;
+    }
+
+    /* 技术亮点4格 */
+    .highlights-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2mm;
+        margin-bottom: 2mm;
+    }
+    .hl-card {
+        background: rgba(11, 18, 30, 0.8);
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        border-radius: 4px;
+        padding: 2mm 2.5mm;
+        position: relative;
+    }
+    .hl-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 3px; height: 100%;
+        background: #00f0ff;
+    }
+    .hl-card .hl-title {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 8pt;
+        font-weight: 700;
+        color: #38bdf8;
+        margin-bottom: 1px;
+    }
+    .hl-card .hl-desc {
+        font-size: 7.2pt;
+        line-height: 1.35;
+        color: #94a3b8;
+    }
+
+    /* 核心技术参数表 */
+    .specs-table-box {
+        background: rgba(11, 18, 30, 0.85);
+        border: 1px solid rgba(0, 240, 255, 0.25);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .specs-table-box .table-head {
+        background: rgba(0, 240, 255, 0.12);
+        padding: 1.5mm 3mm;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 7.5pt;
+        color: #00f0ff;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+    }
+    .specs-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 7.5pt;
+    }
+    .specs-table tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .specs-table tr:last-child {
+        border-bottom: none;
+    }
+    .specs-table td {
+        padding: 1.2mm 2.5mm;
+    }
+    .specs-table td.lbl {
+        color: #7dd3fc;
+        font-weight: 600;
+        width: 44%;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .specs-table td.val {
+        color: #f8fafc;
+        font-family: 'Share Tech Mono', sans-serif;
+        font-weight: 600;
+    }
+
+    /* 右侧副图区 */
+    .reverse-right-col {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5mm;
+    }
+    .sub-image-card {
+        background: radial-gradient(circle at center, #ffffff 0%, #edf2f7 65%, #cbd5e1 100%);
+        border: 1px solid rgba(0, 240, 255, 0.35);
+        border-radius: 4px;
+        padding: 2.5mm;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        flex: 1;
+        overflow: hidden;
+    }
+    .sub-image-card img {
+        max-width: 95%;
+        max-height: 85%;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25));
+    }
+    .sub-image-card .caption {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        background: rgba(11, 18, 30, 0.9);
+        color: #38bdf8;
+        font-family: 'Share Tech Mono', sans-serif;
+        font-size: 6.8pt;
+        padding: 1.2mm 2.5mm;
+        text-align: center;
+        border-top: 1px solid rgba(0, 240, 255, 0.25);
+    }
+
+    /* 航空制造品质徽章 */
+    .aero-quality-badge {
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px dashed rgba(0, 240, 255, 0.35);
+        border-radius: 4px;
+        padding: 2mm 3mm;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 7.2pt;
+        color: #94a3b8;
+    }
+    .aero-quality-badge strong {
+        color: #00f0ff;
+        font-family: 'Share Tech Mono', monospace;
+    }
+
+    /* ==========================================================
+       封面 (FRONT COVER) 专用样式
+       ========================================================== */
+    .cover-page {
+        padding: 0;
+        background: #04060a;
+    }
+    .cover-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 14mm 16mm;
+        z-index: 2;
+    }
+    .cover-bg-glow {
+        position: absolute;
+        top: 20%; left: 35%;
+        width: 450px; height: 450px;
+        background: radial-gradient(circle, rgba(0, 240, 255, 0.18) 0%, rgba(2, 132, 199, 0.05) 50%, transparent 70%);
+        pointer-events: none;
+    }
+    .cover-header-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #00f0ff;
+        padding-bottom: 3mm;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 9.5pt;
+        color: #38bdf8;
+        letter-spacing: 2px;
+    }
+    .cover-main-content {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 10mm;
+        align-items: center;
+        margin: 5mm 0;
+    }
+    .cover-titles h1 {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 28pt;
+        font-weight: 900;
+        line-height: 1.15;
+        color: #ffffff;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 3mm;
+        text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    }
+    .cover-titles .eng-sub {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 13.5pt;
+        font-weight: 700;
+        color: #00f0ff;
+        letter-spacing: 3px;
+        margin-bottom: 5mm;
+        display: block;
+    }
+    .cover-titles .desc-text {
+        font-size: 10pt;
+        line-height: 1.6;
+        color: #cbd5e1;
+        max-width: 520px;
+        border-left: 3px solid #38bdf8;
+        padding-left: 4mm;
+        margin-bottom: 6mm;
+    }
+    .cover-feature-pills {
+        display: flex;
+        gap: 3mm;
+        flex-wrap: wrap;
+    }
+    .cover-pill {
+        background: rgba(0, 240, 255, 0.08);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        padding: 2mm 4mm;
+        border-radius: 3px;
+        font-size: 8pt;
+        color: #7dd3fc;
+        font-weight: 600;
+    }
+    .cover-hero-box {
+        position: relative;
+        background: radial-gradient(circle at center, #ffffff 0%, #e2e8f0 70%, #94a3b8 100%);
+        border-radius: 8px;
+        border: 2px solid #00f0ff;
+        box-shadow: 0 0 40px rgba(0, 240, 255, 0.35);
+        padding: 6mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 105mm;
+    }
+    .cover-hero-box img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+    }
+    .cover-footer-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-top: 1px solid rgba(0, 240, 255, 0.3);
+        padding-top: 3mm;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 8pt;
+        color: #64748b;
+    }
+
+    /* ==========================================================
+       目录页 (TABLE OF CONTENTS) 专用样式
+       ========================================================== */
+    .toc-container {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 8mm;
+        padding: 3mm 0;
+    }
+    .toc-left-intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        border-radius: 6px;
+        padding: 5mm;
+    }
+    .toc-left-intro h2 {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 16pt;
+        color: #ffffff;
+        margin-bottom: 2mm;
+    }
+    .toc-left-intro .toc-tagline {
+        color: #38bdf8;
+        font-size: 9.5pt;
+        font-weight: 600;
+        margin-bottom: 4mm;
+    }
+    .toc-left-intro p {
+        font-size: 8.8pt;
+        line-height: 1.6;
+        color: #cbd5e1;
+        text-align: justify;
+        margin-bottom: 3mm;
+    }
+    .toc-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5mm;
+        margin-top: 3mm;
+    }
+    .pillar-box {
+        background: rgba(11, 18, 30, 0.9);
+        border: 1px solid rgba(0, 240, 255, 0.25);
+        padding: 2.5mm;
+        border-radius: 3px;
+    }
+    .pillar-box .p-title {
+        color: #00f0ff;
+        font-size: 8pt;
+        font-weight: bold;
+    }
+    .pillar-box .p-desc {
+        color: #94a3b8;
+        font-size: 7pt;
+    }
+    .toc-right-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .toc-section-card {
+        background: rgba(11, 18, 30, 0.85);
+        border: 1px solid rgba(0, 240, 255, 0.25);
+        border-radius: 4px;
+        padding: 2.5mm 3.5mm;
+        margin-bottom: 2mm;
+    }
+    .toc-section-card .sec-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        padding-bottom: 1mm;
+        margin-bottom: 1.5mm;
+    }
+    .toc-section-card .sec-title {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 9pt;
+        font-weight: 700;
+        color: #ffffff;
+    }
+    .toc-section-card .sec-pages {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 8pt;
+        color: #00f0ff;
+        font-weight: bold;
+    }
+    .toc-section-card .sec-items {
+        font-size: 7.5pt;
+        color: #94a3b8;
+        line-height: 1.4;
+    }
+
+    /* ==========================================================
+       试验与制造体系 (PAGE 49) 专用样式
+       ========================================================== */
+    .qa-container {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2mm 0;
+    }
+    .qa-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4mm;
+        margin-top: 3mm;
+    }
+    .qa-card {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(0, 240, 255, 0.25);
+        border-radius: 5px;
+        padding: 4mm;
+        position: relative;
+    }
+    .qa-card .qa-step {
+        position: absolute;
+        top: 3mm; right: 4mm;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 16pt;
+        font-weight: 900;
+        color: rgba(0, 240, 255, 0.15);
+    }
+    .qa-card h3 {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 10.5pt;
+        color: #38bdf8;
+        margin-bottom: 2mm;
+    }
+    .qa-card p {
+        font-size: 8pt;
+        line-height: 1.5;
+        color: #cbd5e1;
+    }
+
+    /* ==========================================================
+       封底 (BACK COVER) 专用样式
+       ========================================================== */
+    .back-cover-page {
+        padding: 0;
+        background: #04060a;
+    }
+    .back-cover-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16mm;
+        z-index: 2;
+        text-align: center;
+    }
+    .back-brand-box {
+        margin-top: 15mm;
+    }
+    .back-brand-box h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 24pt;
+        font-weight: 900;
+        letter-spacing: 4px;
+        color: #ffffff;
+        margin-bottom: 3mm;
+        text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    }
+    .back-brand-box .motto {
+        font-family: 'Orbitron', 'PingFang SC', sans-serif;
+        font-size: 12pt;
+        color: #00f0ff;
+        letter-spacing: 3px;
+        margin-bottom: 8mm;
+    }
+    .back-specs-summary {
+        display: flex;
+        justify-content: center;
+        gap: 6mm;
+        margin: 5mm 0;
+    }
+    .back-stat {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(0, 240, 255, 0.3);
+        padding: 4mm 6mm;
+        border-radius: 4px;
+        min-width: 120px;
+    }
+    .back-stat .num {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 18pt;
+        font-weight: 800;
+        color: #38bdf8;
+    }
+    .back-stat .lbl {
+        font-size: 7.5pt;
+        color: #94a3b8;
+        font-family: 'Share Tech Mono', monospace;
+    }
+    .back-legal-box {
+        border-top: 1px solid rgba(0, 240, 255, 0.25);
+        padding-top: 4mm;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 7.5pt;
+        color: #64748b;
+        line-height: 1.6;
+    }
+    
+        </style>
+    </head>
+    <body>
+        
+    <div class="page cover-page">
+        <div class="tech-grid-overlay"></div>
+        <div class="cover-bg-glow"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="cover-container">
+            <div class="cover-header-line">
+                <span>[AEROSPACE CLASSIFIED // LEVEL 5]</span>
+                <span>SYSTEM BLUEPRINT CATALOGUE</span>
+                <span>EDITION 2026-2027</span>
+            </div>
+            
+            <div class="cover-main-content">
+                <div class="cover-titles">
+                    <span class="eng-sub">AEROSPACE DYNAMICS // FLIGHT LAB</span>
+                    <h1>尖端无人机与飞行系统工程图鉴</h1>
+                    <div class="desc-text">
+                        基于高强度航空碳复合材料、分布式多旋翼升力架构与前沿飞控算法。全景解构长航时察打一体无人机、重型垂直起降突击旋翼机、大展弦比太阳能滑翔机及工业级高载荷作业平台。
+                    </div>
+                    <div class="cover-feature-pills">
+                        <span class="cover-pill">23大核心飞行器专题</span>
+                        <span class="cover-pill">46款高精CAD模型解构</span>
+                        <span class="cover-pill">单面印刷·背对背对裱精装</span>
+                        <span class="cover-pill">MIL-STD 军工级标准规范</span>
+                    </div>
+                </div>
+                
+                <div class="cover-hero-box">
+                    <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_004138_699.png" alt="Valkyrie Gunship" />
+                </div>
+            </div>
+            
+            <div class="cover-footer-line">
+                <span>PRINT MARK: SINGLE-SIDED ALBUM EDITION</span>
+                <span>TOTAL 50 PAGES ARCHIVE</span>
+                <span class="page-number">PAGE 01 / 50 [COVER · 封面]</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">SEC-00</span>
+                <span>ENGINEERING OVERVIEW // TABLE OF CONTENTS</span>
+            </div>
+            <div class="center-meta">全景图鉴目录与工程序言</div>
+            <div class="right-meta">SYS.REF: AGY-INDEX-2026</div>
+        </div>
+        
+        <div class="toc-container">
+            <div class="toc-left-intro">
+                <div>
+                    <h2>未来飞行工程序言</h2>
+                    <div class="toc-tagline">突破气动与材料的物理极限 · 赋能全自主空域智能</div>
+                    <p>
+                        人类对蓝天的探索正在从单一载人飞行的宏观时代，全面迈入高智能、分布式、多构型的无人机系统（UAV）新纪元。本图鉴汇集了当代航空工程中最具代表性的尖端飞行器三维CAD模型与工程测试图样。
+                    </p>
+                    <p>
+                        从万米高空执行超长巡逻的察打一体中空长航时无人机，到突破传统形态的串列双翼与飞翼隐身测绘机；从承载几十公斤药液与货物的六旋翼工业巨兽，到以每小时200公里极速翻滚穿越的竞技FPV穿梭机，每一个模型都凝聚了轻量化碳纤结构、流体仿真拓扑与动力推进学的心血。
+                    </p>
+                </div>
+                
+                <div>
+                    <div style="font-family:'Orbitron'; font-size:9pt; color:#00f0ff; margin-bottom:1.5mm;">
+                        FIVE CORE ARCHITECTURES // 五大技术基石
+                    </div>
+                    <div class="toc-pillars">
+                        <div class="pillar-box">
+                            <div class="p-title">01 拓扑轻量化机身</div>
+                            <div class="p-desc">T700/T800热压罐共固化</div>
+                        </div>
+                        <div class="pillar-box">
+                            <div class="p-title">02 复合升力推进链</div>
+                            <div class="p-desc">垂起平飞双模无缝过渡</div>
+                        </div>
+                        <div class="pillar-box">
+                            <div class="p-title">03 全自主抗扰飞控</div>
+                            <div class="p-desc">RTK双天线差分+视觉SLAM</div>
+                        </div>
+                        <div class="pillar-box">
+                            <div class="p-title">04 高能效外转子动力</div>
+                            <div class="p-desc">0.2mm硅钢片与折叠碳桨</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="toc-right-list">
+                <div class="toc-section-card">
+                    <div class="sec-head">
+                        <span class="sec-title">PART I · 战略察打与特种战术旋翼机</span>
+                        <span class="sec-pages">P03 - P10</span>
+                    </div>
+                    <div class="sec-items">
+                        AERO-REAPER 3000 (P03-04) · VALKYRIE 重型突击机 (P05-06) · HORIZON-X 复合翼 (P07-08) · PHANTOM WING 飞翼 (P09-10)
+                    </div>
+                </div>
+                
+                <div class="toc-section-card">
+                    <div class="sec-head">
+                        <span class="sec-title">PART II · 工业测绘巡检与重载作业平台</span>
+                        <span class="sec-pages">P11 - P20</span>
+                    </div>
+                    <div class="sec-items">
+                        AGRI-TITAN 植保机 (P11-12) · SKY-SURVEYOR 巡检机 (P13-14) · TANDEM-VTOL 双翼机 (P15-16) · CYBER-COPTER 直升机 (P17-18) · TITAN-CARRIER 运输机 (P19-20)
+                    </div>
+                </div>
+                
+                <div class="toc-section-card">
+                    <div class="sec-head">
+                        <span class="sec-title">PART III · 长航时侦察、太阳能与货运复合翼</span>
+                        <span class="sec-pages">P21 - P30</span>
+                    </div>
+                    <div class="sec-items">
+                        V-TAIL SCOUT (P21-22) · SOLARIS 太阳能滑翔机 (P23-24) · T-TAIL PATROL (P25-26) · HYBRID-CARGO 货运机 (P27-28) · AERO-STREAM 航拍机 (P29-30)
+                    </div>
+                </div>
+                
+                <div class="toc-section-card">
+                    <div class="sec-head">
+                        <span class="sec-title">PART IV · 倾转旋翼、室内涵道与特技机架</span>
+                        <span class="sec-pages">P31 - P44</span>
+                    </div>
+                    <div class="sec-items">
+                        CAD工程标注机 (P31-32) · CINE-SHIELD 涵道机 (P33-34) · SPECTER 远距机架 (P35-36) · APEX 花飞机 (P37-38) · TACTICAL STRIKE (P39-40) · AUTONOMOUS LAB (P41-42) · MONOCOQUE 一体机身 (P43-44)
+                    </div>
+                </div>
+                
+                <div class="toc-section-card">
+                    <div class="sec-head">
+                        <span class="sec-title">PART V · 航空高效动力链与制造试验体系</span>
+                        <span class="sec-pages">P45 - P50</span>
+                    </div>
+                    <div class="sec-items">
+                        AERO-PROPULSION 电机碳桨 (P45-46) · 螺旋桨矩阵与分电 (P47-48) · 航空制造品质体系 (P49) · 封底与合规认证 (P50)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">PRINT INSTRUCTION: BINDING DIRECTORY</span>
+            <span>BLUEPRINT SYSTEM ARCHITECTURE</span>
+            <span class="page-number">PAGE 02 / 50 [REVERSE · 目录]</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-01</span>
+                <span>TACTICAL AIR SYSTEM // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">战术无人机系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: ULS-3000R</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_011033_050.png" alt="AERO-REAPER 3000 // 中空长航时察打一体无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">MALE Armed Reconnaissance & Strike UAV</div>
+                    <h2>AERO-REAPER 3000 // 中空长航时察打一体无人机</h2>
+                    <div class="tagline">远距超视距巡逻 · 昼夜全天候精确制导打击 · 卫星中继全自主作战</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">机身翼展</span>
+            <span class="cap-val">18.5 m</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机身全长</span>
+            <span class="cap-val">9.2 m</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大起飞重量</span>
+            <span class="cap-val">1850 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 03 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-01</span>
+                <span>TACTICAL AIR SYSTEM // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">战术无人机系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: ULS-3000R</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AERO-REAPER 3000 // 中空长航时察打一体无人机</h2>
+                    <span class="code-tag">MALE Armed Reconnaissance & Strike UAV // SYS.ID: ULS-3000R</span>
+                    <p>AERO-REAPER 3000采用经典高升阻比上单翼与V形尾翼气动布局，机身采用大面积高模量碳纤维预浸料整体热压成型。集成大口径多光谱光电/红外转塔与合成孔径雷达（SAR），机翼下方配备4个标准化重载通用外挂点，支持挂载空地微型制导导弹及精确制导滑翔炸弹。搭载重油涡轮增压发动机与低噪声后推螺旋桨，具备长达36小时的超长滞空巡航时间与卫星视距外中继自主控制能力。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">超长滞空耐力</div>
+            <div class="hl-desc">大展弦比机翼配合燃油经济性动力链，支持单次起降36小时不间断高空巡逻。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">多载荷智能融合</div>
+            <div class="hl-desc">标配红外热成像、激光测距指示器及毫米波SAR雷达，支持复杂气象下超视距侦搜。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">标准化武器挂架</div>
+            <div class="hl-desc">4个标准航空挂载导轨，最大外挂载荷达450kg，兼具精确侦察与定点压制能力。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全自主卫星通信</div>
+            <div class="hl-desc">三轴自稳Ku/Ka波段卫星通信天线，支持2000公里超视距低延迟数据传输。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">机身翼展</td>
+            <td class="val">18.5 m</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机身全长</td>
+            <td class="val">9.2 m</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞重量</td>
+            <td class="val">1850 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">有效载荷能力</td>
+            <td class="val">480 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大巡航速度</td>
+            <td class="val">260 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">实用升限</td>
+            <td class="val">9500 m</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大续航时间</td>
+            <td class="val">36 hrs</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">通信数据链路</td>
+            <td class="val">Ku/Ka SATCOM + 双冗余视距微波</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_015952_347.png" alt="气动正视截面与微波卫星天线机头流线分析" />
+            <div class="caption">气动正视截面与微波卫星天线机头流线分析</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 04 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-02</span>
+                <span>FUTURE VTOL ASSAULT // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">特种旋翼机系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: VTOL-G90</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_004138_699.png" alt="VALKYRIE // 未来重型垂直起降隐身武装突击旋翼机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Heavy Tactical Stealth VTOL Gunship</div>
+                    <h2>VALKYRIE // 未来重型垂直起降隐身武装突击旋翼机</h2>
+                    <div class="tagline">多重升力复合推进 · 低雷达散射外形 · 强火力全域低空突防</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">旋翼主直径</span>
+            <span class="cap-val">12.8 m</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机身全长</span>
+            <span class="cap-val">14.2 m</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大起飞重量</span>
+            <span class="cap-val">5600 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 05 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-02</span>
+                <span>FUTURE VTOL ASSAULT // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">特种旋翼机系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: VTOL-G90</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>VALKYRIE // 未来重型垂直起降隐身武装突击旋翼机</h2>
+                    <span class="code-tag">Heavy Tactical Stealth VTOL Gunship // SYS.ID: VTOL-G90</span>
+                    <p>VALKYRIE代表了下一代低空高速对地近距空中支援的尖端概念。该机融合了共轴多旋翼高推力升力系统与机身推进短翼，机头搭载机腹隐藏式多管重型加特林航空机炮及前向光电瞄准具。整机采用菱形折面隐身气动外形与雷达吸波涂层，有效压缩雷达与红外特征。机体内部集成分布式飞控计算机与自适应气动倾角控制律，能够在狭窄峡谷与复杂城市战场环境中实现极速悬停与横向超机动突袭。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">低可探测隐身修形</div>
+            <div class="hl-desc">倾斜多面体机身与雷达散射内倾座舱罩设计，全向RCS截面优于传统武装直升机70%。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">重型共轴旋翼矩阵</div>
+            <div class="hl-desc">多叶高刚性碳复合材料主旋翼，结合翼下增压涵道，实现超大起飞推重比与抗过载性。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">机腹收纳式航炮系统</div>
+            <div class="hl-desc">配备30mm多管旋转机关炮，支持全自动雷达伺服火控跟踪与瞬时大倾角平飞射击。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">城市复杂空域突防</div>
+            <div class="hl-desc">三维激光雷达全向地形测绘与主动避障雷达，支持在复杂建筑群内全自主低空穿透。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">旋翼主直径</td>
+            <td class="val">12.8 m</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机身全长</td>
+            <td class="val">14.2 m</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞重量</td>
+            <td class="val">5600 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">巡航平飞时速</td>
+            <td class="val">380 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大突防速度</td>
+            <td class="val">440 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">作战作战半径</td>
+            <td class="val">650 km</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">内置载荷仓容积</td>
+            <td class="val">3.8 m³</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">动力推进架构</td>
+            <td class="val">双轴混动涡轮发动机 + 电驱动矢量旋翼</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: VTOL-G90
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 06 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-03</span>
+                <span>HYBRID VTOL PLATFORM // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">复合翼巡检系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: VTOL-HX4</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_021019_041.png" alt="AERO-VTOL HORIZON-X // 双尾撑垂直起降长航时无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Twin-Boom Long-Endurance Hybrid VTOL UAV</div>
+                    <h2>AERO-VTOL HORIZON-X // 双尾撑垂直起降长航时无人机</h2>
+                    <div class="tagline">四旋翼垂直起落 · 固定翼高效平飞 · 零跑道依赖全自主巡检</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">机身翼展</span>
+            <span class="cap-val">3200 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机身机长</span>
+            <span class="cap-val">1800 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">空机重量</span>
+            <span class="cap-val">12.5 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 07 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-03</span>
+                <span>HYBRID VTOL PLATFORM // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">复合翼巡检系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: VTOL-HX4</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AERO-VTOL HORIZON-X // 双尾撑垂直起降长航时无人机</h2>
+                    <span class="code-tag">Twin-Boom Long-Endurance Hybrid VTOL UAV // SYS.ID: VTOL-HX4</span>
+                    <p>AERO-VTOL HORIZON-X采用成熟高效的“四旋翼起降+后推巡航”混合动力架构与高刚度碳纤维双尾撑气动布局。无需任何跑道或弹射架，即可在山地、森林、舰船等狭小非平整场地垂直起飞并迅速切换至高速巡航模式。机翼采用大展弦比微下反设计，机身前部预留大容量快拆载荷舱，可搭载五镜头正射倾斜航测相机、机载激光雷达（LiDAR）或气体检测传感器，广泛应用于特高压巡检、国土测绘与管线巡查。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">零跑道全自主起降</div>
+            <div class="hl-desc">四旋翼垂直平稳起降，固定翼极速平飞巡检，完美解决复杂地形受限痛点。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">双尾撑稳定结构</div>
+            <div class="hl-desc">一体化碳纤维复合材料双尾撑，带来卓越的风洞抗扭强度与抗风颤性能。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">模块化快拆机翼</div>
+            <div class="hl-desc">免工具滑轨快锁卡扣结构，5分钟内完成从装箱到组装部署，单人即可轻松操作。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">多传感器扩展舱</div>
+            <div class="hl-desc">标准化供电与数据总线接口，兼容激光雷达、倾斜摄影、红外吊舱等多样化任务。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">机身翼展</td>
+            <td class="val">3200 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机身机长</td>
+            <td class="val">1800 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">空机重量</td>
+            <td class="val">12.5 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞全重</td>
+            <td class="val">26.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">任务载荷</td>
+            <td class="val">5.5 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">经济巡航速度</td>
+            <td class="val">90 ~ 110 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">纯电巡航续航</td>
+            <td class="val">180 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">抗风能力</td>
+            <td class="val">起降 6 级 / 巡航 7 级</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_002321_755.png" alt="复合翼气动俯视机翼构型与垂直起降动力撑杆分布" />
+            <div class="caption">复合翼气动俯视机翼构型与垂直起降动力撑杆分布</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 08 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-04</span>
+                <span>STEALTH FLYING WING // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">飞翼测绘系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: FW-800P</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_004351_191.png" alt="PHANTOM WING-800 // 飞翼布局长航时高空遥感无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Flying-Wing Long-Endurance Remote Sensing UAV</div>
+                    <h2>PHANTOM WING-800 // 飞翼布局长航时高空遥感无人机</h2>
+                    <div class="tagline">纯飞翼无尾气动布局 · 极致超低空气阻力 · 广域大面积正射航测</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">机翼翼展</span>
+            <span class="cap-val">2400 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机翼面积</span>
+            <span class="cap-val">0.78 m²</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大起飞重量</span>
+            <span class="cap-val">7.8 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 09 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-04</span>
+                <span>STEALTH FLYING WING // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">飞翼测绘系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: FW-800P</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>PHANTOM WING-800 // 飞翼布局长航时高空遥感无人机</h2>
+                    <span class="code-tag">Flying-Wing Long-Endurance Remote Sensing UAV // SYS.ID: FW-800P</span>
+                    <p>PHANTOM WING-800基于纯飞翼空气动力学流线设计，彻底消除传统机身与尾翼带来的寄生阻力与诱导阻力，全机身均作为升力面提供卓越的气动效率。采用超高强度凯夫拉与碳纤维复合三明治机翼，机头集成超低风阻防护光学视窗，机尾搭载静音低震动后推动力总成。在同等电池容量下，飞翼布局相比传统构型航程提升超过40%，是超长距离石油管道巡视、边防巡逻及万亩森林防火监控的理想平台。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">极致气动升阻比</div>
+            <div class="hl-desc">翼身融合设计使全机升阻比高达18.5，显著降低高速巡航功耗，航程大幅延伸。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">低雷达/红外特征</div>
+            <div class="hl-desc">连续平滑机身曲线与嵌入式发动机进排气设计，大幅降低声学与雷达被探测概率。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">高精度惯导直驱</div>
+            <div class="hl-desc">差分GNSS+高精度MEMS惯性导航单元，确保超长距离巡航中的毫米级姿态控制。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">大开间中段机舱</div>
+            <div class="hl-desc">机翼中心段宽阔内舱，提供充沛的电池配重空间与隔振精密航电安装位。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">机翼翼展</td>
+            <td class="val">2400 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机翼面积</td>
+            <td class="val">0.78 m²</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞重量</td>
+            <td class="val">7.8 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">任务载荷</td>
+            <td class="val">1.8 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">巡航速度</td>
+            <td class="val">75 ~ 95 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">失速速度</td>
+            <td class="val">38 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大航程</td>
+            <td class="val">240 km</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">回收方式</td>
+            <td class="val">深失速伞降 / 机腹滑擦着陆</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: FW-800P
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 10 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-05</span>
+                <span>SMART AGRICULTURE // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">农业重载系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: AGRI-60H</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_010159_380.png" alt="AGRI-TITAN HEX-60 // 智能六旋翼精准农业植保喷雾机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Precision Hexacopter Agricultural Spraying System</div>
+                    <h2>AGRI-TITAN HEX-60 // 智能六旋翼精准农业植保喷雾机</h2>
+                    <div class="tagline">60升超大容量药箱 · 双离心雾化智能喷盘 · 毫米波全向仿地雷达</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">轴距尺寸</span>
+            <span class="cap-val">2180 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">药箱满载容积</span>
+            <span class="cap-val">60 L</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">空载作业重量</span>
+            <span class="cap-val">38.5 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 11 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-05</span>
+                <span>SMART AGRICULTURE // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">农业重载系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: AGRI-60H</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AGRI-TITAN HEX-60 // 智能六旋翼精准农业植保喷雾机</h2>
+                    <span class="code-tag">Precision Hexacopter Agricultural Spraying System // SYS.ID: AGRI-60H</span>
+                    <p>AGRI-TITAN HEX-60专为大规模现代化农林植保作业设计。整机采用六轴对称大轴距桁架布局与折叠碳纤机臂，展开工作状态稳固坚实，折叠后运输体积压缩65%。标配60升快拆大容量药箱与双高压隔膜水泵，配备前后双喷杆阵列及高速离心雾化喷头，支持药液微米级粒径调节与风场强效压下。搭载前后双向避障雷达与下视仿地雷达，在梯田、坡地及果园等复杂地形中实现厘米级精准贴地仿地自主飞行。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">60L快拆防晃药箱</div>
+            <div class="hl-desc">大容量水平低重心药箱，内置多级防波隔板，有效抑制大幅度飞行中的药液晃动。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">强风场离心喷雾</div>
+            <div class="hl-desc">六旋翼强劲下洗气流精准将50-300微米细雾压送至作物根部，药效利用率提升50%。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全地形厘米级仿地</div>
+            <div class="hl-desc">高频毫米波雷达实时测量相对作物冠层高度，自适应保持恒定喷洒距离与航迹。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">IP67级全机水洗</div>
+            <div class="hl-desc">全密封三防航电与动力仓，作业完毕后可直接用高压水枪全机冲洗，耐农药腐蚀。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">轴距尺寸</td>
+            <td class="val">2180 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">药箱满载容积</td>
+            <td class="val">60 L</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">空载作业重量</td>
+            <td class="val">38.5 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大作业全重</td>
+            <td class="val">108 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">有效作业喷幅</td>
+            <td class="val">9.0 ~ 12.0 m</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">单小时喷洒效率</td>
+            <td class="val">280 ~ 350 亩/小时</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">雷达感知系统</td>
+            <td class="val">全向有源相控阵雷达 + 双目视觉</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">防护等级</td>
+            <td class="val">全机 IP67 工业防水防尘</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_010219_917.png" alt="六旋翼展开机臂几何轴线与喷幅管路分布俯视图" />
+            <div class="caption">六旋翼展开机臂几何轴线与喷幅管路分布俯视图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 12 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-06</span>
+                <span>INDUSTRIAL SURVEY // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">工业巡检系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: SS-400X</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_004254_919.png" alt="SKY-SURVEYOR 400 // 工业级四旋翼高精度测绘巡检无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Industrial Survey & Mapping Quadcopter</div>
+                    <h2>SKY-SURVEYOR 400 // 工业级四旋翼高精度测绘巡检无人机</h2>
+                    <div class="tagline">RTK厘米级定位 · 三轴增稳双光吊舱 · 工业级全天候高防护机身</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">对角线轴距</span>
+            <span class="cap-val">890 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">整机整备质量</span>
+            <span class="cap-val">4.8 kg</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大有效负载</span>
+            <span class="cap-val">2.5 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 13 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-06</span>
+                <span>INDUSTRIAL SURVEY // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">工业巡检系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: SS-400X</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>SKY-SURVEYOR 400 // 工业级四旋翼高精度测绘巡检无人机</h2>
+                    <span class="code-tag">Industrial Survey & Mapping Quadcopter // SYS.ID: SS-400X</span>
+                    <p>SKY-SURVEYOR 400是一款专为电力巡检、地理测绘、城市规划与安防应急量身定制的高可靠性四旋翼作业平台。机身核心骨架采用高抗扭碳纤维方管与航空铝数控加工连接件，具备卓越的结构刚性。顶部标配双天线RTK差分导航模块，具备极强的抗电磁干扰性能，支持在高压输电线与变电站强磁环境下稳定定高定点。下部搭载标准快拆接口，支持无缝更换30倍变焦热成像双光云台或机载激光雷达。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">双天线抗磁干扰RTK</div>
+            <div class="hl-desc">双天线差分定角技术，在强电磁辐射电网及金属塔架旁依然能够精准锁定航线。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全温区智能加热电池</div>
+            <div class="hl-desc">自加热智能双电池备份系统，支持在-20℃极寒至50℃酷暑环境下稳定安全放电。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">AI目标识别跟踪</div>
+            <div class="hl-desc">机载神经网络加速芯片，实时识别电力绝缘子破损、电缆引流线发热等典型缺陷。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">轻量便携一体折叠</div>
+            <div class="hl-desc">旋翼机臂采用双向反折机构，收纳后单人可单手提行或直接装入SUV后备箱。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">对角线轴距</td>
+            <td class="val">890 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">整机整备质量</td>
+            <td class="val">4.8 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大有效负载</td>
+            <td class="val">2.5 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">无载续航时间</td>
+            <td class="val">55 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">满载作业续航</td>
+            <td class="val">38 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">定位精度</td>
+            <td class="val">水平 1cm+1ppm / 垂直 1.5cm+1ppm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">图传测控距离</td>
+            <td class="val">15 km (FCC认证高清图传)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">工作温度范围</td>
+            <td class="val">-20℃ ~ +55℃</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: SS-400X
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 14 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-07</span>
+                <span>TANDEM-WING VTOL // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">串列双翼系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: TDM-200V</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_015727_076.png" alt="AERO-TANDEM VTOL-II // 串列双机翼垂直起降巡检无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Tandem-Wing Hybrid VTOL UAV System</div>
+                    <h2>AERO-TANDEM VTOL-II // 串列双机翼垂直起降巡检无人机</h2>
+                    <div class="tagline">前后串列双翼抗紊流布局 · 紧凑机身大升力 · 高原与海上强风适航</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">前翼/后翼翼展</span>
+            <span class="cap-val">2600 mm / 2800 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机身全长</span>
+            <span class="cap-val">1650 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大起飞重量</span>
+            <span class="cap-val">18.0 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 15 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-07</span>
+                <span>TANDEM-WING VTOL // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">串列双翼系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: TDM-200V</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AERO-TANDEM VTOL-II // 串列双机翼垂直起降巡检无人机</h2>
+                    <span class="code-tag">Tandem-Wing Hybrid VTOL UAV System // SYS.ID: TDM-200V</span>
+                    <p>AERO-TANDEM VTOL-II采用了航空动力学中独特的串列双机翼构型，前后翼面协同产生升力，有效分散主梁应力集中，并在较小的总翼展下获得了极佳的有效升力面积。串列翼的气动耦合特性使得该机在遭遇阵风或高空紊流时具有天然的高阻尼恢复力矩，抗风与抗颠簸能力显著优于传统单机翼飞机。前后翼端配置4点垂直起降电机，机尾设置高效推进电机，完美兼顾山区林区复杂气候巡护。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">串列双翼气动增益</div>
+            <div class="hl-desc">前后翼气流耦合效应产生下洗流自适应调谐，升力系数提高25%，巡航姿态极其稳定。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">机身结构紧凑高刚</div>
+            <div class="hl-desc">在相同起飞重量下较常规机型翼展缩短30%，极大提升野外机动性与收纳便捷度。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">高原强紊流适应性</div>
+            <div class="hl-desc">独特的气动下洗自阻尼特性，在海拔4500米以上高原及高落差峡谷强风中表现优异。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">油电双混动可选</div>
+            <div class="hl-desc">支持纯电版或油电混合动力包选装，混动版本最大留空巡检时间可达6.5小时。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">前翼/后翼翼展</td>
+            <td class="val">2600 mm / 2800 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机身全长</td>
+            <td class="val">1650 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞重量</td>
+            <td class="val">18.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">载荷仓承载力</td>
+            <td class="val">4.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">巡航速度</td>
+            <td class="val">85 ~ 115 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大抗风等级</td>
+            <td class="val">7 级 (16 m/s)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞海拔</td>
+            <td class="val">5000 m</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">航程覆盖</td>
+            <td class="val">350 km (纯电配置)</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: TDM-200V
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 16 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-08</span>
+                <span>TACTICAL HELICOPTER // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">无人直升机系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: CCOP-700</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020202_110.png" alt="CYBER-COPTER 700 // 工业级重载单旋翼无人直升机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Heavy-Payload Industrial Drone Helicopter</div>
+                    <h2>CYBER-COPTER 700 // 工业级重载单旋翼无人直升机</h2>
+                    <div class="tagline">主副旋翼变距机构 · 机械效率巅峰 · 超强抗风与大重量吊挂作业</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">主旋翼直径</span>
+            <span class="cap-val">1780 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机身机长</span>
+            <span class="cap-val">1580 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">空机全重</span>
+            <span class="cap-val">8.5 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 17 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-08</span>
+                <span>TACTICAL HELICOPTER // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">无人直升机系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: CCOP-700</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>CYBER-COPTER 700 // 工业级重载单旋翼无人直升机</h2>
+                    <span class="code-tag">Heavy-Payload Industrial Drone Helicopter // SYS.ID: CCOP-700</span>
+                    <p>CYBER-COPTER 700代表了传统单旋翼机械直升机在无人化领域的巅峰工艺。搭载高强度合金主旋翼十字盘与精密无刷变距伺服舵机，动力由高性能无刷马达或微型涡轴发动机直驱。相较于多旋翼飞行器，单主旋翼具有无可比拟的气动盘载效率与超大风阻抗性，能够在8级强阵风及暴雨等极端恶劣海况下完成悬停作业。下机身设置一体式加固滑橇式起落架，支持应急投送、吊载运输与海上搜救。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">高精度变距控制</div>
+            <div class="hl-desc">金属全CNC加工主旋翼头与数控斜盘系统，实现毫秒级螺距响应与极速自旋着陆保护。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">8级超强抗阵风</div>
+            <div class="hl-desc">高惯量碳纤旋翼与高盘载比优势，在海上钻井平台、强风峡谷作业时依旧坚如磐石。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">多任务重心自适应</div>
+            <div class="hl-desc">飞控系统内置载荷质量与动态质心在线辨识算法，吊挂物体摆动时自动补偿平抑。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">自旋降落安全冗余</div>
+            <div class="hl-desc">发生主动力故障时，飞控自动进入自旋下滑减速模式，最大程度保护高价值设备。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">主旋翼直径</td>
+            <td class="val">1780 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机身机长</td>
+            <td class="val">1580 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">空机全重</td>
+            <td class="val">8.5 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞全重</td>
+            <td class="val">22.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大外吊负荷</td>
+            <td class="val">10.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大平飞速度</td>
+            <td class="val">140 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">悬停留空时间</td>
+            <td class="val">45 min (电推) / 120 min (油动)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">抗风极限</td>
+            <td class="val">8 级 (20.7 m/s)</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: CCOP-700
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 18 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-09</span>
+                <span>HEAVY UTILITY CARRIER // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">重载运输系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: HCAR-600</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020505_942.png" alt="TITAN-CARRIER H6 // 工业级模块化重载六旋翼运输平台" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Modular Heavy-Duty Hexacopter Utility Platform</div>
+                    <h2>TITAN-CARRIER H6 // 工业级模块化重载六旋翼运输平台</h2>
+                    <div class="tagline">航空碳板矩阵中心舱 · 动力冗余单桨停转保全 · 重型物资精准投送</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">对角线轴距</span>
+            <span class="cap-val">1650 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大起飞全重</span>
+            <span class="cap-val">45.0 kg</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大纯有效载重</span>
+            <span class="cap-val">20.0 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 19 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-09</span>
+                <span>HEAVY UTILITY CARRIER // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">重载运输系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: HCAR-600</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>TITAN-CARRIER H6 // 工业级模块化重载六旋翼运输平台</h2>
+                    <span class="code-tag">Modular Heavy-Duty Hexacopter Utility Platform // SYS.ID: HCAR-600</span>
+                    <p>TITAN-CARRIER H6是一款针对极限物流、山地物资运输、应急消防灭火及野外重型设备吊装设计的工业旗舰六旋翼平台。机身中心板采用多层3K高模量碳纤维板配合航空7075铝合金数控锁扣，具备极其优异的承重刚度与抗扭疲劳强度。六轴动力单元拥有单电机故障紧急容错算法，即使任意一个电机或螺旋桨在空中受损失效，剩余五个动力轴依然能够平稳控制姿态并安全迫降返航。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">单桨失效容错控制</div>
+            <div class="hl-desc">先进的六轴非对称动力重构算法，空中突发单轴停转时毫秒级平稳接管姿态。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">模块化箱体挂载</div>
+            <div class="hl-desc">机腹导轨兼容医疗急救箱、消防灭火弹发射箱、物流标准箱及多波段通信中继舱。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">高载荷结构拓扑优化</div>
+            <div class="hl-desc">经有限元FEA应力拓扑优化的中心板与一体折叠机臂接头，承重安全系数达3.5倍。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">智能航线自主抛投</div>
+            <div class="hl-desc">集成激光测距与电控投掷钩，达到预定目标经纬度与高度后全自动精准无损脱钩。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">对角线轴距</td>
+            <td class="val">1650 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞全重</td>
+            <td class="val">45.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大纯有效载重</td>
+            <td class="val">20.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">满载作业续航</td>
+            <td class="val">28 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">半载巡航续航</td>
+            <td class="val">42 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">动力电池系统</td>
+            <td class="val">14S 30000mAh 半固态高能锂电池</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大上升/下降速度</td>
+            <td class="val">6 m/s / 5 m/s</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">结构材质</td>
+            <td class="val">东丽 T700 碳纤维 + 7075-T6 航空铝合金</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_015402_876.png" alt="六旋翼高强度模块化机身中心板与折叠臂CNC连接件细节" />
+            <div class="caption">六旋翼高强度模块化机身中心板与折叠臂CNC连接件细节</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 20 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-10</span>
+                <span>TACTICAL RECON // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">战术侦察系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: VTS-500</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020320_907.png" alt="V-TAIL SCOUT-5 // 倒V尾长航时中程战术侦察无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Tactical Inverted V-Tail Reconnaissance UAV</div>
+                    <h2>V-TAIL SCOUT-5 // 倒V尾长航时中程战术侦察无人机</h2>
+                    <div class="tagline">倒V尾阻力自消减 · 静音后推推进 · 战术侦察与激光照射引导</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">翼展全宽</span>
+            <span class="cap-val">3600 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机身长度</span>
+            <span class="cap-val">2100 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大起飞重量</span>
+            <span class="cap-val">32.0 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 21 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-10</span>
+                <span>TACTICAL RECON // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">战术侦察系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: VTS-500</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>V-TAIL SCOUT-5 // 倒V尾长航时中程战术侦察无人机</h2>
+                    <span class="code-tag">Tactical Inverted V-Tail Reconnaissance UAV // SYS.ID: VTS-500</span>
+                    <p>V-TAIL SCOUT-5专为前线中程战术战情侦察、边境巡逻与定点目标跟踪而研发。创新的倒V形双垂尾结构兼具水平安定面与垂直安定面的双重功能，同时将发动机尾流与螺旋桨噪声向上反射遮蔽，极大降低地面声音被截获率。机腹前方设有低风阻收放式光电侦察球舱，支持白天高倍光学变焦与夜间长波红外热成像无缝切换，为地面指挥中枢提供连续稳定的战术全景视频流。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">倒V尾气动声学抑制</div>
+            <div class="hl-desc">倒V尾结构形成天然的声学屏障，显著衰减下向螺旋桨脉动声波，实现隐蔽侦查。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">抗侧滑气动增稳</div>
+            <div class="hl-desc">复合舵面解耦控制律在横侧向提供更平顺的转弯侧倾响应，摄像画面无多余抖动。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">微型双光吊舱集成</div>
+            <div class="hl-desc">集成30倍光学变焦相机与非制冷红外热成像传感器，5公里外清晰识别车辆牌号。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">跑道起落/气动弹射</div>
+            <div class="hl-desc">支持传统硬化地面滑跑起降，亦可配置紧凑型车载弹射架进行野外无跑道发射。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">翼展全宽</td>
+            <td class="val">3600 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机身长度</td>
+            <td class="val">2100 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞重量</td>
+            <td class="val">32.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">有效设备载荷</td>
+            <td class="val">6.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">巡航速度</td>
+            <td class="val">110 ~ 130 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大航速</td>
+            <td class="val">165 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">巡航续航时间</td>
+            <td class="val">8.5 hrs (汽油机) / 3.0 hrs (锂电)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">作业半径</td>
+            <td class="val">120 km (视距数字链路)</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_005830_638.png" alt="倒V尾纯白测试机身与后推双叶桨流线侧视工程图" />
+            <div class="caption">倒V尾纯白测试机身与后推双叶桨流线侧视工程图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 22 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-11</span>
+                <span>SOLAR & HIGH ALTITUDE // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">高空长航时系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: SOL-9000</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_003115_044.png" alt="AERO-GLIDER SOLARIS // 大展弦比太阳能高空长航时巡航机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">High-Aspect Ratio Solar-Powered Long-Endurance Glider</div>
+                    <h2>AERO-GLIDER SOLARIS // 大展弦比太阳能高空长航时巡航机</h2>
+                    <div class="tagline">极限展弦比超轻骨架 · 柔性光伏高效聚能 · 绿色零排放无限滞空</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">极限翼展</span>
+            <span class="cap-val">4500 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">展弦比 (AR)</span>
+            <span class="cap-val">26.2</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">整机起飞重量</span>
+            <span class="cap-val">4.2 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 23 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-11</span>
+                <span>SOLAR & HIGH ALTITUDE // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">高空长航时系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: SOL-9000</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AERO-GLIDER SOLARIS // 大展弦比太阳能高空长航时巡航机</h2>
+                    <span class="code-tag">High-Aspect Ratio Solar-Powered Long-Endurance Glider // SYS.ID: SOL-9000</span>
+                    <p>AERO-GLIDER SOLARIS是针对临近空间环境监测、全天候气象观测及紧急通信中继开发的太阳能高空长航时无人飞行器。拥有超过25的超大展弦比机翼与超低诱导阻力翼型，机翼表面铺设转换效率达24.5%的超薄柔性单晶硅太阳能电池片，白天将富余电能储存在轻量化半固态动力电池组中，夜晚依靠重力滑翔与低能耗巡航维持飞行高度，展现了近乎无限巡航的绿色飞行潜能。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">展弦比25+极致滑翔</div>
+            <div class="hl-desc">极低沉降率与极致升阻比，依靠微弱热气流上升即可长时间保持无动力滑翔。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全翼面柔性光伏</div>
+            <div class="hl-desc">抗弯折曲面封装技术，超轻量级太阳能电池紧密贴合上翼面，兼具蒙皮功能。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">超轻碳纤维碳管梁架</div>
+            <div class="hl-desc">采用M40J超高模量碳纤维预浸料制作主翼梁，刚度惊人且全机结构重量控制在极致。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">平流层通信基站载荷</div>
+            <div class="hl-desc">搭载微型4G/5G应急基站与卫星中继载荷，在地面失联受灾区域充当空中不落灯塔。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">极限翼展</td>
+            <td class="val">4500 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">展弦比 (AR)</td>
+            <td class="val">26.2</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">整机起飞重量</td>
+            <td class="val">4.2 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">翼载荷</td>
+            <td class="val">48 g/dm²</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最小下沉率</td>
+            <td class="val">0.32 m/s</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">光伏充电功率</td>
+            <td class="val">180 W (峰值光照)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">巡航功耗</td>
+            <td class="val">仅 42 W @ 40 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">设计巡航高度</td>
+            <td class="val">3000 ~ 6500 m</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: SOL-9000
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 24 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-12</span>
+                <span>PATROL FIXED-WING // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">经典固定翼系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: TTP-240</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_005747_692.png" alt="T-TAIL PATROL-240 // 经典T尾高稳定性固定翼巡逻无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">T-Tail High-Stability Fixed-Wing UAV</div>
+                    <h2>T-TAIL PATROL-240 // 经典T尾高稳定性固定翼巡逻无人机</h2>
+                    <div class="tagline">T型尾翼防下洗干扰 · 机翼可拆卸快锁机构 · 经典巡航气动标杆</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">翼展宽度</span>
+            <span class="cap-val">2400 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机身总长</span>
+            <span class="cap-val">1450 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">起飞重量</span>
+            <span class="cap-val">5.8 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 25 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-12</span>
+                <span>PATROL FIXED-WING // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">经典固定翼系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: TTP-240</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>T-TAIL PATROL-240 // 经典T尾高稳定性固定翼巡逻无人机</h2>
+                    <span class="code-tag">T-Tail High-Stability Fixed-Wing UAV // SYS.ID: TTP-240</span>
+                    <p>T-TAIL PATROL-240采用航空工业中久经考验的T形尾翼构型。将水平尾翼安装在垂直安定面顶部，使其彻底远离主翼气流脱体与机身尾流湍流的影响，无论在大迎角飞行还是低速进近时，升降舵均能保持充沛的气动操纵舵效。机身采用高抗冲EPO与碳纤维复合加固工艺，经受得住恶劣野外环境中的草地甚至沙石地面的机腹滑降冲击，是测绘院与巡线队伍的经典主力用机。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">T尾纯净气流舵效</div>
+            <div class="hl-desc">水平尾翼置于上方，避开主翼失速涡流区与发动机滑流，大迎角俯仰控制极其敏锐。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">三段式快拆主翼</div>
+            <div class="hl-desc">机翼采用两节碳纤插管与自紧式弹簧卡扣，无需螺丝即可在3分钟内快速拼装完毕。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">降落伞/滑降双模式</div>
+            <div class="hl-desc">内置机背弹簧反冲式降落伞舱，在狭窄迫降区实现零冲刺垂直伞降回收。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全机双舵机冗余</div>
+            <div class="hl-desc">左右副翼与升降舵均配备独立数码金属舵机，即使单舵卡死仍可通过混控自稳。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">翼展宽度</td>
+            <td class="val">2400 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机身总长</td>
+            <td class="val">1450 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">起飞重量</td>
+            <td class="val">5.8 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">有效载重</td>
+            <td class="val">1.5 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">经济巡航速度</td>
+            <td class="val">68 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大平飞航速</td>
+            <td class="val">120 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">纯电巡航时间</td>
+            <td class="val">150 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">标准起飞方式</td>
+            <td class="val">手抛发射 / 橡筋弹射</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: TTP-240
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 26 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-13</span>
+                <span>HYBRID CARGO VTOL // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">复合翼重载系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: HCAR-350</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_021053_273.png" alt="HYBRID-CARGO VTOL-350 // 双尾撑大载荷复合翼货运物流机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Twin-Boom Heavy Hybrid VTOL Cargo Aircraft</div>
+                    <h2>HYBRID-CARGO VTOL-350 // 双尾撑大载荷复合翼货运物流机</h2>
+                    <div class="tagline">宽体腹部快卸货仓 · 4+1油电动力混合 · 偏远海岛支线急送</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">主翼翼展</span>
+            <span class="cap-val">3500 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">整机长度</span>
+            <span class="cap-val">2100 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">空机重量</span>
+            <span class="cap-val">16.0 kg</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 27 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-13</span>
+                <span>HYBRID CARGO VTOL // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">复合翼重载系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: HCAR-350</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>HYBRID-CARGO VTOL-350 // 双尾撑大载荷复合翼货运物流机</h2>
+                    <span class="code-tag">Twin-Boom Heavy Hybrid VTOL Cargo Aircraft // SYS.ID: HCAR-350</span>
+                    <p>HYBRID-CARGO VTOL-350专为高价值冷链药品、海岛快件及山区偏远站点点对点低空货运而打造。机身拥有规整宽大的腹部中央货舱，支持标准物流箱模块化快速装卸。机翼四点垂直起降电机负责平稳离地与精准定点着陆，机尾由大马力高推力发动机驱动高效推力桨进行平飞巡航。采用双尾撑结构与下垂端板小翼，在大载重起飞条件下仍保持优良的纵向与航向静稳定性。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">宽体快拆标准化货仓</div>
+            <div class="hl-desc">50L方形规整货舱空间，配备电控防盗货舱门与温湿度实时传感器，全程数字追溯。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">4+1动力全闭环切换</div>
+            <div class="hl-desc">自主飞控无缝管理垂直升力转平飞推力，过渡阶段平稳无掉高，保障易碎物资安全。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全自动航线无人值守</div>
+            <div class="hl-desc">配合智能自动起降机场机巢，实现全自动换电、货物自动投放、全自动返航。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全天候防冰与防雨</div>
+            <div class="hl-desc">关键皮托管电加热防冻，机翼前缘防雨蚀涂层，保障海上与高寒多雾天气安全运作。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">主翼翼展</td>
+            <td class="val">3500 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">整机长度</td>
+            <td class="val">2100 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">空机重量</td>
+            <td class="val">16.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞全重</td>
+            <td class="val">35.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">有效商业载荷</td>
+            <td class="val">8.0 ~ 10.0 kg</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">巡航速度</td>
+            <td class="val">100 ~ 125 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">配送作业半径</td>
+            <td class="val">100 km (单程直达)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">动力组合</td>
+            <td class="val">4轴垂直电驱动 + 1轴巡航混动推进</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_005239_831.png" alt="复合翼动力撑杆与垂直升力电机安装位工程解析" />
+            <div class="caption">复合翼动力撑杆与垂直升力电机安装位工程解析</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 28 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-14</span>
+                <span>AERIAL CINEMATOGRAPHY // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">智能航拍系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: STR-700A</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/7.jpg" alt="AERO-STREAM 7 // 消费级流线型智能航拍无人机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Sleek Aerodynamic Smart Aerial Drone</div>
+                    <h2>AERO-STREAM 7 // 消费级流线型智能航拍无人机</h2>
+                    <div class="tagline">仿生流线一体成型机壳 · 4K三轴无刷增稳云台 · 视觉全向智能避障</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">机身对角尺寸</span>
+            <span class="cap-val">350 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">整机起飞重量</span>
+            <span class="cap-val">920 g</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">相机传感器</span>
+            <span class="cap-val">1 英寸 CMOS / 2000万有效像素</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 29 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-14</span>
+                <span>AERIAL CINEMATOGRAPHY // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">智能航拍系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: STR-700A</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AERO-STREAM 7 // 消费级流线型智能航拍无人机</h2>
+                    <span class="code-tag">Sleek Aerodynamic Smart Aerial Drone // SYS.ID: STR-700A</span>
+                    <p>AERO-STREAM 7将航天流体力学外形与工业设计美学融为一体。流线型深海蓝涂装外壳宛如飞鸟掠空，有效降低飞行中的涡流风阻与气动风噪。机身腹部搭载三轴微型无刷增稳机械云台与1英寸大底4K 60帧高清影像传感器。整机周身密布双目立体视觉相机阵列，支持实时构建周围三维环境深度点云，在茂密树林、复杂岩石间穿行时能够智能规避障碍并全自动跟焦拍摄运动主体。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">仿生水滴流线壳体</div>
+            <div class="hl-desc">通过风洞阻力优化的高光注塑一体化外壳，显著降低迎风阻力并提供全机防泼溅。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">1英寸大底航拍镜头</div>
+            <div class="hl-desc">2000万像素专业摄影镜头，支持10-bit D-Log M色彩模式，捕捉电影级丰富暗部细节。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">APAS 5.0智能避障</div>
+            <div class="hl-desc">全向双目视觉融合前向毫米波雷达，复杂树丛障碍物中全自动规划顺畅绕行路径。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">高能量密度电池</div>
+            <div class="hl-desc">定制高电压高密度智能动力电池，单块电池支持长达46分钟的从容航拍创作。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">机身对角尺寸</td>
+            <td class="val">350 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">整机起飞重量</td>
+            <td class="val">920 g</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">相机传感器</td>
+            <td class="val">1 英寸 CMOS / 2000万有效像素</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">视频录制规格</td>
+            <td class="val">4K @ 60fps / 1080P @ 120fps</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大抗风速度</td>
+            <td class="val">12 m/s (6 级风)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最长悬停时间</td>
+            <td class="val">40 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最长航拍续航</td>
+            <td class="val">46 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">数字图传距离</td>
+            <td class="val">12 km (1080P/60fps 低延迟)</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: STR-700A
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 30 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-15</span>
+                <span>CAD DIMENSIONAL BLUEPRINT // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">工程设计系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: CAD-TR237</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/VIEW3.jpg" alt="TILT-ROTOR QUAD-PLANE // 倾转多旋翼精密三维工程标注机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">CAD Dimensioned Tilt-Rotor Quadplane System</div>
+                    <h2>TILT-ROTOR QUAD-PLANE // 倾转多旋翼精密三维工程标注机</h2>
+                    <div class="tagline">机械工程基准标注 · 动态重心严苛平衡 · 倾转机构空间几何剖析</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">前后轴距基准</span>
+            <span class="cap-val">171.40 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">左右轮廓宽度</span>
+            <span class="cap-val">237.00 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">结构重量</span>
+            <span class="cap-val">680 g (含全套舵机机构)</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 31 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-15</span>
+                <span>CAD DIMENSIONAL BLUEPRINT // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">工程设计系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: CAD-TR237</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>TILT-ROTOR QUAD-PLANE // 倾转多旋翼精密三维工程标注机</h2>
+                    <span class="code-tag">CAD Dimensioned Tilt-Rotor Quadplane System // SYS.ID: CAD-TR237</span>
+                    <p>TILT-ROTOR QUAD-PLANE展现了航空器从三维CAD概念设计向精密数控加工转化的工程原貌。模型完整保留了三维坐标系基准（171.40mm x 237mm工程界限尺寸）、重心标记点（Center of Gravity）与旋翼扫掠干涉圆。该机型采用革命性的倾转旋翼架构，前向电机兼顾垂直起飞与水平推进。碳纤维蜂窝夹层中心板上紧凑布局动力电调、动力电池与RTK航向天线，展现了极致的机械空间集成艺术。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">毫厘级精准工程标注</div>
+            <div class="hl-desc">严格基于三维CAD拓扑数据设计，精确标定电机轴间距、重心垂线与空间干涉界限。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">动态CG重心匹配</div>
+            <div class="hl-desc">电池滑动配重导轨与旋翼倾转力矩精准重合，确保模式转换过渡瞬间零俯仰漂移。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">碳纤编织蜂窝主板</div>
+            <div class="hl-desc">高刚度斜纹碳纤维板与CNC轻量化铝合金垫柱，承受超大扭矩而不发生结构形变。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">多轴动力冗余布局</div>
+            <div class="hl-desc">前后旋翼异径差速匹配，在提供充沛垂直推力的同时，显著改善平飞巡航推重比。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">前后轴距基准</td>
+            <td class="val">171.40 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">左右轮廓宽度</td>
+            <td class="val">237.00 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">结构重量</td>
+            <td class="val">680 g (含全套舵机机构)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">旋翼倾转角度</td>
+            <td class="val">0°(平飞) ~ 90°(悬停) 连续可调</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">倾转伺服精度</td>
+            <td class="val">0.08° 数码无刷高压伺服</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">主板材料规范</td>
+            <td class="val">3K 斜纹哑光纯碳纤维 (厚度 2.5mm)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大设计推重比</td>
+            <td class="val">2.8 : 1</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">适配动力系统</td>
+            <td class="val">2207 ~ 2306 级别无刷电机</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <div style="font-family:'Share Tech Mono'; color:#38bdf8; font-size:10pt; text-align:center; padding: 10mm;">
+                <div style="font-size:24pt; margin-bottom:3mm; opacity:0.8;">◈</div>
+                AERODYNAMIC TELEMETRY VISUALIZATION<br/>
+                <span style="font-size:7.5pt; color:#94a3b8; display:block; margin-top:2mm;">
+                    全数字孪生空气动力学流场与结构有限元仿真数据包已归档<br/>
+                    CAD REFERENCE: SYS.ID: CAD-TR237
+                </span>
+            </div>
+            <div class="caption">三维流体力学与拓扑应力有限元解算云图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 32 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-16</span>
+                <span>INDOOR CINEWHOOP // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">室内安防系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: CS-25DW</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020802_359.png" alt="CINE-SHIELD 25 // 室内安全防护涵道航拍穿越机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Ducted CineWhoop FPV Drone System</div>
+                    <h2>CINE-SHIELD 25 // 室内安全防护涵道航拍穿越机</h2>
+                    <div class="tagline">360°聚碳酸酯全防护涵道圈 · 零碰撞伤害 · 人群与室内无忧穿梭</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">涵道内径规格</span>
+            <span class="cap-val">2.5 英寸 (63.5 mm)</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">整机轴距尺寸</span>
+            <span class="cap-val">112 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">不含电池重量</span>
+            <span class="cap-val">145 g</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 33 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-16</span>
+                <span>INDOOR CINEWHOOP // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">室内安防系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: CS-25DW</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>CINE-SHIELD 25 // 室内安全防护涵道航拍穿越机</h2>
+                    <span class="code-tag">Ducted CineWhoop FPV Drone System // SYS.ID: CS-25DW</span>
+                    <p>CINE-SHIELD 25是专为商业地产室内一镜到底拍摄、工业狭小密闭空间巡检及近距离人像跟拍而设计的安全型涵道穿越机。整机四个螺旋桨完全包裹在一体注塑成型的高韧性聚碳酸酯防撞涵道圈内，即使在飞行过程中与墙壁、家具或人员发生意外接触，也不会损伤机体或造成人员划伤。涵道内壁经过精密流道气动优化，产生微增压效应，反向提升了低速悬停时的升力效率与抗扰动稳定性。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">一体化注塑高韧涵道</div>
+            <div class="hl-desc">高弹性PC复合材质护圈，经受百次以上碰撞而不破裂，全面保护旋翼与周围环境。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">涵道气动增压增益</div>
+            <div class="hl-desc">护圈截面采用类文丘里管导流设计，减弱桨尖涡流损失，提升低速悬停推力12%。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">裸狗/Action相机减震</div>
+            <div class="hl-desc">前置硅胶悬吊式减震云台，彻底消除机身高频微抖，输出极致丝滑的电影级运镜。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">倒置反推高敏重心</div>
+            <div class="hl-desc">电机倒置反向安装，降低全机物理重心，在狭窄弯道转弯时带来凌厉精准的操控手感。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">涵道内径规格</td>
+            <td class="val">2.5 英寸 (63.5 mm)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">整机轴距尺寸</td>
+            <td class="val">112 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">不含电池重量</td>
+            <td class="val">145 g</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大起飞全重</td>
+            <td class="val">260 g</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">相机载荷能力</td>
+            <td class="val">GoPro Bones / Insta360 GO 3 / 裸狗</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">动力电池规格</td>
+            <td class="val">4S 650mAh ~ 850mAh 高倍率LiPo</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">室内巡航续航</td>
+            <td class="val">7.5 ~ 9.0 min</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">图传发射功率</td>
+            <td class="val">25mW ~ 800mW 可调数字高清图传</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_003853_629.png" alt="反推式动力配置与8叶高效微型螺旋桨装配视角" />
+            <div class="caption">反推式动力配置与8叶高效微型螺旋桨装配视角</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 34 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-17</span>
+                <span>LONG-RANGE RACER // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">竞技机架系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: SPC-LR7</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_002253_983.png" alt="SPECTER LR-7 // 远距离长航时碳纤维穿越机架" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Long-Range Carbon Fiber FPV Racing Frame</div>
+                    <h2>SPECTER LR-7 // 远距离长航时碳纤维穿越机架</h2>
+                    <div class="tagline">T700高刚度纯碳板材 · 几何拉长轴距抗抖 · 超视距山峰巡航基石</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">对角线轴距</span>
+            <span class="cap-val">320 mm (支持7寸桨叶)</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机臂板厚度</span>
+            <span class="cap-val">6.0 mm 倒角打磨碳板</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">顶板/底板厚度</span>
+            <span class="cap-val">2.5 mm / 3.0 mm</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 35 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-17</span>
+                <span>LONG-RANGE RACER // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">竞技机架系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: SPC-LR7</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>SPECTER LR-7 // 远距离长航时碳纤维穿越机架</h2>
+                    <span class="code-tag">Long-Range Carbon Fiber FPV Racing Frame // SYS.ID: SPC-LR7</span>
+                    <p>SPECTER LR-7是专为穿越机远距离探索（Long Range FPV）与高山风口巡航打造的高强度机架底盘。机臂采用厚达6mm的一体式碳纤维板切割，搭配双侧碳纤加强拉杆，彻底消除了大油门爬升时机臂产生的微小共振与弯曲变形。拉长的前后轴距使螺旋桨完全退出FPV高清摄像机的第一视角画面，让飞手尽享纯净无遮挡的辽阔天际视野。尾部集成高刚性TPU打印天线座与GPS罗盘防护罩。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">6mm极厚碳纤机臂</div>
+            <div class="hl-desc">采用日本东丽T700高纯度碳纤维板，超强抗扭曲疲劳刚度，抗摔毁强度提升200%。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">无桨叶遮挡宽广视野</div>
+            <div class="hl-desc">机头加长前后拉伸结构，使高清图传画面与录制相机彻底摆脱旋转黑边的视觉遮挡。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">双机臂加强拉杆</div>
+            <div class="hl-desc">对角线高强度合金支撑拉杆设计，有效平抑低频机械共振，大幅降低飞控陀螺仪噪声。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">大容量电池双绑带位</div>
+            <div class="hl-desc">长达160mm的顶部防滑碳板空间，支持平放长条形4S/6S 21700超长续航锂电包。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">对角线轴距</td>
+            <td class="val">320 mm (支持7寸桨叶)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机臂板厚度</td>
+            <td class="val">6.0 mm 倒角打磨碳板</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">顶板/底板厚度</td>
+            <td class="val">2.5 mm / 3.0 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机架净重</td>
+            <td class="val">182 g (含金属螺丝及打印件)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">飞控安装孔位</td>
+            <td class="val">20x20mm / 30.5x30.5mm 双规格兼容</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">图传安装位</td>
+            <td class="val">兼容 DJI O3 Air Unit / 蜗牛高清图传</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">相机侧板间距</td>
+            <td class="val">19mm / 20mm 微型摄像头</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">推荐动力搭配</td>
+            <td class="val">2806.5 / 2807 电机 + 7040 螺旋桨</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_002722_183.png" alt="宽X型竞速机架底部加强筋与前后对角拉杆抗扭结构" />
+            <div class="caption">宽X型竞速机架底部加强筋与前后对角拉杆抗扭结构</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 36 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-18</span>
+                <span>FREESTYLE FPV // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">自由花飞系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: APX-5F</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_003525_079.png" alt="APEX FREESTYLE 5 // 5寸专业特技花飞与竞速穿梭机" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">5-Inch Freestyle Acrobatics Racing FPV Drone</div>
+                    <h2>APEX FREESTYLE 5 // 5寸专业特技花飞与竞速穿梭机</h2>
+                    <div class="tagline">几何重心高度集中 · 瞬时加速度爆发力 · 丝滑翻滚极速穿桥</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">标准轴距尺寸</span>
+            <span class="cap-val">225 mm (经典正X / 宽X)</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">空机裸重</span>
+            <span class="cap-val">125 g</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">整机起飞全重</span>
+            <span class="cap-val">680 g (含6S电池与高清录制机)</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 37 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-18</span>
+                <span>FREESTYLE FPV // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">自由花飞系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: APX-5F</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>APEX FREESTYLE 5 // 5寸专业特技花飞与竞速穿梭机</h2>
+                    <span class="code-tag">5-Inch Freestyle Acrobatics Racing FPV Drone // SYS.ID: APX-5F</span>
+                    <p>APEX FREESTYLE 5专为高难度三维极限特技飞行动作而生。全机结构以“质量重心高度集中化”为核心设计原则，将电池、飞控与四合一电调全部紧凑布置在旋转几何中心，赋予飞行器难以置信的角加速度响应与翻滚敏捷度。坚韧的碳纤维机臂在机身中部交错锁止，配合超轻航空铝侧板，经得起激进动作中的高难度碰撞。无论是急速俯冲、极速贴地漂移还是空中悬停自旋，皆能游刃有余。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">质心向心化设计</div>
+            <div class="hl-desc">三轴转动惯量极小化布局，使得翻滚（Roll）与俯仰（Pitch）转速最高可突破1800°/s。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">模块化独立可拆机臂</div>
+            <div class="hl-desc">每根机臂仅需拆卸两颗螺丝即可单独更换，野外炸机后2分钟内迅速复飞。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">CNC航空铝护头侧板</div>
+            <div class="hl-desc">7075定制铝合金机头相机防护侧板，给予高单价FPV高清摄像头坚固的铠甲级保护。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">优化电容与走线通道</div>
+            <div class="hl-desc">机身内部预设防震高频低阻电容卡槽与接收机天线出线孔，走线工整清爽无杂乱。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">标准轴距尺寸</td>
+            <td class="val">225 mm (经典正X / 宽X)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">空机裸重</td>
+            <td class="val">125 g</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">整机起飞全重</td>
+            <td class="val">680 g (含6S电池与高清录制机)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大推重比</td>
+            <td class="val">高达 12.5 : 1</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">0-100km/h加速</td>
+            <td class="val">仅需 1.1 秒</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">极限最高平飞时速</td>
+            <td class="val">210 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">推荐无刷马达</td>
+            <td class="val">2207 1950KV (6S) / 2550KV (4S)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">极限特技续航</td>
+            <td class="val">4.5 ~ 6.0 min (全油门激进操控)</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020641_847.png" alt="轻量化四旋翼机架底盘与中心装配螺柱结构" />
+            <div class="caption">轻量化四旋翼机架底盘与中心装配螺柱结构</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_002602_215.png" alt="经典高刚性X型碳板切割几何外形" />
+            <div class="caption">经典高刚性X型碳板切割几何外形</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 38 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-19</span>
+                <span>TACTICAL PAYLOAD FPV // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">特种突防系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: TAC-STK8</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020533_865.png" alt="TACTICAL STRIKE FPV // 特种任务挂载穿越机系统" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Tactical Modular Payload FPV Strike Platform</div>
+                    <h2>TACTICAL STRIKE FPV // 特种任务挂载穿越机系统</h2>
+                    <div class="tagline">腹部电控脱钩挂载 · 抗电子压制跳频天线 · 极速突防定点投送</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">工作轴距</span>
+            <span class="cap-val">350 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机体全重 (不含载荷)</span>
+            <span class="cap-val">780 g</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">最大腹部挂载能力</span>
+            <span class="cap-val">1800 g</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 39 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-19</span>
+                <span>TACTICAL PAYLOAD FPV // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">特种突防系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: TAC-STK8</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>TACTICAL STRIKE FPV // 特种任务挂载穿越机系统</h2>
+                    <span class="code-tag">Tactical Modular Payload FPV Strike Platform // SYS.ID: TAC-STK8</span>
+                    <p>TACTICAL STRIKE FPV是一款针对特种安全防范、特种破拆引导及应急物资超低空投掷开发的任务级穿越飞行平台。针对复杂电磁对抗环境设计，配备双频高增益圆极化全向天线与跳频抗干扰微波链路，具备在强GPS信号屏蔽干扰下的纯手动惯导与FPV视觉强行突入能力。腹部配备电磁触发快卸吊舱支架，可在高速平飞掠过目标上空的瞬间，以毫秒级响应精准释放特种救援器材或破拆工具。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">抗电子干扰跳频链路</div>
+            <div class="hl-desc">采用868/915MHz与2.4GHz双频自适应跳频技术，有效抵御宽带电子压制。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">高速掠地突防突击</div>
+            <div class="hl-desc">平飞极速超160km/h，利用低空雷达盲区与地表障碍物掩护快速逼近指定坐标。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">电控毫秒级投掷释放</div>
+            <div class="hl-desc">专用舵机/电磁锁扣联动机构，地面遥控一键触发，确保载荷平稳脱离不缠绕。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">重型碳板加强梁</div>
+            <div class="hl-desc">全机采用双层加厚碳纤维板强化承重底盘，承受高达1.5kg腹部集中载荷而不变形。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">工作轴距</td>
+            <td class="val">350 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机体全重 (不含载荷)</td>
+            <td class="val">780 g</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大腹部挂载能力</td>
+            <td class="val">1800 g</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">高速突防航速</td>
+            <td class="val">140 ~ 175 km/h</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大作业作战半径</td>
+            <td class="val">10 km (低空超视距)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">挂架释放响应延迟</td>
+            <td class="val">＜ 50 ms</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">动力电调规格</td>
+            <td class="val">60A 四合一金属屏蔽大功率电调</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">遥测控制频率</td>
+            <td class="val">ELRS 915MHz / 2.4GHz True Diversity</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_004010_510.png" alt="高承载加强型碳纤骨架与模块化支柱排布工程图" />
+            <div class="caption">高承载加强型碳纤骨架与模块化支柱排布工程图</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 40 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-20</span>
+                <span>AUTONOMOUS RESEARCH // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">科研开发系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: LAB-X4</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020706_152.png" alt="AUTONOMOUS LAB-X // 多传感器自主飞行科研四旋翼平台" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Multi-Sensor Autonomous Research Quadcopter Platform</div>
+                    <h2>AUTONOMOUS LAB-X // 多传感器自主飞行科研四旋翼平台</h2>
+                    <div class="tagline">机载边缘AI算力核心 · 激光雷达SLAM建图 · ROS2机器人开源生态</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">对角轴距</span>
+            <span class="cap-val">450 mm</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">整机净重 (含航电)</span>
+            <span class="cap-val">1950 g</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">机载AI算力</span>
+            <span class="cap-val">最高支持 275 TOPS (Jetson Orin)</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 41 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-20</span>
+                <span>AUTONOMOUS RESEARCH // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">科研开发系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: LAB-X4</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AUTONOMOUS LAB-X // 多传感器自主飞行科研四旋翼平台</h2>
+                    <span class="code-tag">Multi-Sensor Autonomous Research Quadcopter Platform // SYS.ID: LAB-X4</span>
+                    <p>AUTONOMOUS LAB-X专为高校航空航天学院、机器人研究所及前沿智能无人机算法团队打造。机身上层宽阔甲板预留标准螺孔矩阵，原生适配NVIDIA Jetson Orin机载深度学习计算模块、全向固态激光雷达、双目深度相机及超宽带UWB室内定位基站。支持在彻底失去全球卫星导航（GNSS-Denied）的地下矿道、核电站内部及建筑室内环境中，依靠纯机载视觉与激光SLAM算法实现全自主探索导航与避障。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">机载百TOPS算力加持</div>
+            <div class="hl-desc">直接搭载Jetson边缘AI终端，支持机载实时运行YOLO目标检测与三维点云配准。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">原生支持ROS2/PX4</div>
+            <div class="hl-desc">完全打通ROS2 Humble与PX4 Autopilot微服务架构，提供丰富的开放API与仿真环境。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">无GPS自主探索SLAM</div>
+            <div class="hl-desc">融合下视光流、单线/多线激光雷达与IMU数据，在无卫星室内环境厘米级悬停。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">模块化高位起落架</div>
+            <div class="hl-desc">高离地间隙碳纤起落架，为机腹全向激光雷达和倾斜相机提供充裕的视野净空。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">对角轴距</td>
+            <td class="val">450 mm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">整机净重 (含航电)</td>
+            <td class="val">1950 g</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">机载AI算力</td>
+            <td class="val">最高支持 275 TOPS (Jetson Orin)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">激光雷达规格</td>
+            <td class="val">Livox Mid-360 / 3D全向固态激光雷达</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">室内悬停精度</td>
+            <td class="val">水平 ± 2 cm / 垂直 ± 1.5 cm</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">二次开发接口</td>
+            <td class="val">CAN / UART / USB 3.2 / 千兆以太网</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">供电输出扩展</td>
+            <td class="val">双路 5V/3A, 12V/5A 独立DC-DC稳压</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">标准测试续航</td>
+            <td class="val">24 min (全算力与雷达满载状态)</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_010348_311.png" alt="X4四旋翼教学实验机型架构" />
+            <div class="caption">X4四旋翼教学实验机型架构</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_010331_515.png" alt="四旋翼带黄色高位碳纤起落架实验机型" />
+            <div class="caption">四旋翼带黄色高位碳纤起落架实验机型</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 42 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-21</span>
+                <span>CARBON MONOCOQUE // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">结构工艺系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: CFA-MONO</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_021304_646.png" alt="CARBON-MONOCOQUE // 一体成型高模量碳纤维极简骨架" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Monocoque Ultra-Rigid Carbon Airframe Architecture</div>
+                    <h2>CARBON-MONOCOQUE // 一体成型高模量碳纤维极简骨架</h2>
+                    <div class="tagline">连续纤维无缝热压 · 航空级应力拓扑精雕 · 极致轻量化与高模量</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">成型工艺</span>
+            <span class="cap-val">高压真空热压罐一体共固化成型</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">纤维材质</span>
+            <span class="cap-val">日本东丽 T800 / M40J 级碳纤维预浸布</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">杨氏弹性模量</span>
+            <span class="cap-val">294 GPa (超高弹性模量)</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 43 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-21</span>
+                <span>CARBON MONOCOQUE // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">结构工艺系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: CFA-MONO</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>CARBON-MONOCOQUE // 一体成型高模量碳纤维极简骨架</h2>
+                    <span class="code-tag">Monocoque Ultra-Rigid Carbon Airframe Architecture // SYS.ID: CFA-MONO</span>
+                    <p>CARBON-MONOCOQUE机身展示了现代碳纤维复材工艺在无人机结构减重上的终极追求。突破传统碳板拼接用螺丝连接的工艺瓶颈，采用3D连续预浸布在特制金属模具内经过130℃高温高压一体共固化成型。彻底消除了应力集中孔位与金属紧固件死重，使机体抗弯抗扭刚度跃升300%，而整体重量比传统金属架构减轻55%。机体预埋碳化硅耐磨螺套与气动倒角边缘，将空气阻力与机械震动降至理论极限。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">一体无缝热压共固化</div>
+            <div class="hl-desc">无螺栓拼接死角，连续纤维沿主受力路径无断裂排布，彻底杜绝空中疲劳分层。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">三维拓扑镂空减重</div>
+            <div class="hl-desc">基于有限元算法精准剔除非承力多余材质，在保证绝对刚度的前提下达到羽量级。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">航空级CNC高精倒角</div>
+            <div class="hl-desc">全机边缘采用0.5mm微弧倒角CNC精铣打磨，不仅手感细腻丝滑，更能杜绝划伤导线。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">共振频率大幅提高</div>
+            <div class="hl-desc">机体天然固有频率高达180Hz以上，远超电机震动主频带，无需复杂陷波滤波。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">成型工艺</td>
+            <td class="val">高压真空热压罐一体共固化成型</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">纤维材质</td>
+            <td class="val">日本东丽 T800 / M40J 级碳纤维预浸布</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">杨氏弹性模量</td>
+            <td class="val">294 GPa (超高弹性模量)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">抗拉极限强度</td>
+            <td class="val">4900 MPa</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">结构重量削减</td>
+            <td class="val">对比铝合金机身减轻 58%</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">抗冲击韧性</td>
+            <td class="val">特种环氧树脂增韧体系，抗落锤冲击</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">工作耐温界限</td>
+            <td class="val">-55℃ ~ +125℃ 无形变</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">适用机型范围</td>
+            <td class="val">高竞速无人机 / 军规微型侦察机</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_003609_866.png" alt="异构折叠机身中框拓扑受力结构细节" />
+            <div class="caption">异构折叠机身中框拓扑受力结构细节</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_003718_911.png" alt="伸展X型长距离低风阻竞速机臂几何形态" />
+            <div class="caption">伸展X型长距离低风阻竞速机臂几何形态</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 44 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-22</span>
+                <span>PROPULSION SYSTEM // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">动力系统系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: AP-SYS8</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_010933_442.png" alt="AERO-PROPULSION // 航空级无刷电机与折叠碳桨动力总成" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Aviation-Grade Brushless Motor & Folding Carbon Prop System</div>
+                    <h2>AERO-PROPULSION // 航空级无刷电机与折叠碳桨动力总成</h2>
+                    <div class="tagline">N45SH耐高温稀土钕铁硼磁钢 · 动平衡G1.0高精校准 · 离心自锁折叠桨</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">电机规格尺寸</span>
+            <span class="cap-val">8318 / 10015 级别无刷马达</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">定子极槽配置</span>
+            <span class="cap-val">36N42P (多极高扭矩平稳输出)</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">单轴最大推力</span>
+            <span class="cap-val">16.5 kg / 轴 (12S高压驱动)</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 45 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-22</span>
+                <span>PROPULSION SYSTEM // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">动力系统系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: AP-SYS8</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AERO-PROPULSION // 航空级无刷电机与折叠碳桨动力总成</h2>
+                    <span class="code-tag">Aviation-Grade Brushless Motor & Folding Carbon Prop System // SYS.ID: AP-SYS8</span>
+                    <p>AERO-PROPULSION动力系统是无人机强劲心跳的来源。电机定子采用0.2mm超薄高硅川崎无取向硅钢片，搭配220℃军工级耐高温无氧铜漆包线手工精密绕组，铁损降低35%，电机工作效率突破91%。高刚性折叠碳纤维螺旋桨叶片经风洞精密调校，在电机启动瞬间依靠离心力瞬间平稳展开并自锁，折叠后紧贴机臂收纳，便于野外运输且极大减小抗风风阻，是工业长航时无人机的首选动力动力链。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">0.2mm超薄低铁损定子</div>
+            <div class="hl-desc">极细晶粒硅钢冲片大幅降低高速交变磁场下的涡流发热，长时间高负荷运转温升极低。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">进口NSK/EZO超静音轴承</div>
+            <div class="hl-desc">精密双大尺寸航空滚珠轴承，有效抵御剧烈机动中的强向径向轴向交变冲击载荷。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">动平衡等级G1.0极致调谐</div>
+            <div class="hl-desc">每台转子均经过双平面动态高速去重调平，振动加速度＜0.08G，从源头消灭果冻抖动。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">自锁折叠碳纤维螺旋桨</div>
+            <div class="hl-desc">采用航空级连续碳纤模压成型，桨根部加厚防疲劳设计，提供澎湃充沛的瞬时推力。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">电机规格尺寸</td>
+            <td class="val">8318 / 10015 级别无刷马达</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">定子极槽配置</td>
+            <td class="val">36N42P (多极高扭矩平稳输出)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">单轴最大推力</td>
+            <td class="val">16.5 kg / 轴 (12S高压驱动)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">推荐单轴载荷</td>
+            <td class="val">5.0 ~ 7.5 kg / 轴 (最高能效工作区间)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">最大工作能效</td>
+            <td class="val">11.8 g/W @ 4.0kg 恒定悬停推力</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">防护等级规范</td>
+            <td class="val">IP56 工业防尘防水，全封闭防沙</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">折叠螺旋桨尺寸</td>
+            <td class="val">30 英寸 (30x10.5 复合折叠桨)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">配套FOC矢量电调</td>
+            <td class="val">CAN总线实时回传转速、温度、母线电流</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_004941_704.png" alt="航空级高效外转子无刷电机定转子透视与多孔散热结构" />
+            <div class="caption">航空级高效外转子无刷电机定转子透视与多孔散热结构</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_010846_708.png" alt="双叶碳纤维折叠螺旋桨气动翼型剖面细节" />
+            <div class="caption">双叶碳纤维折叠螺旋桨气动翼型剖面细节</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 46 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-23</span>
+                <span>AVIONICS & AERO-PROPS // MODEL VIEWPORT</span>
+            </div>
+            <div class="center-meta">航电配件系列 · 高清全貌工程图</div>
+            <div class="right-meta">SYS.ID: PDB-PROP9</div>
+        </div>
+        
+        <div class="obverse-content">
+            <div class="obverse-hero-viewport">
+                <div class="viewport-grid"></div>
+                <div class="crosshair c-tl"></div>
+                <div class="crosshair c-br"></div>
+                <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_005038_903.png" alt="AVIONICS & PROPS // 气动螺旋桨矩阵与智能电源管理分电系统" />
+            </div>
+            
+            <div class="obverse-title-bar">
+                <div class="title-group">
+                    <div class="sub-name">Aero-Props Matrix & Intelligent Power Distribution Architecture</div>
+                    <h2>AVIONICS & PROPS // 气动螺旋桨矩阵与智能电源管理分电系统</h2>
+                    <div class="tagline">三叶低噪宽弦静音桨 · 高动平衡碳桨 · 大电流智能分电与多路平衡充</div>
+                </div>
+                <div class="obverse-capsules">
+                    
+        <div class="capsule">
+            <span class="cap-lbl">三叶静音桨规格</span>
+            <span class="cap-val">3-Blade 8.5x4.2 / 10x4.5 (高韧复材)</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">双叶碳纤桨规格</span>
+            <span class="cap-val">2-Blade 15x5.5 / 18x6.2 (100%全碳模压)</span>
+        </div>
+        
+        <div class="capsule">
+            <span class="cap-lbl">分电板持续电流</span>
+            <span class="cap-val">160 A (环境温度 25℃ 持续工作)</span>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 正面全幅模型图</span>
+            <span>AERODYNAMICS DESIGN & MODELING</span>
+            <span class="page-number">PAGE 47 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">UNIT-23</span>
+                <span>AVIONICS & AERO-PROPS // TECHNICAL SPECIFICATION</span>
+            </div>
+            <div class="center-meta">航电配件系列 · 深度技术规格与解构</div>
+            <div class="right-meta">SYS.ID: PDB-PROP9</div>
+        </div>
+        
+        <div class="reverse-content">
+            <div class="reverse-left-col">
+                <div class="prod-intro-box">
+                    <h2>AVIONICS & PROPS // 气动螺旋桨矩阵与智能电源管理分电系统</h2>
+                    <span class="code-tag">Aero-Props Matrix & Intelligent Power Distribution Architecture // SYS.ID: PDB-PROP9</span>
+                    <p>本单元汇集了飞行系统核心的外围关键动力与航电配套矩阵。涵盖专为城市安防低噪巡航设计的三叶宽弦大曲率静音螺旋桨、用于高速竞速的高动平衡双叶纯碳桨，以及用于地面保障与机载配电的智能大电流分电与多通道平衡充电插座模块。分电系统采用厚达4oz沉金铜箔与一体压铸铝散热外壳，支持高达200A瞬时峰值大电流安全通过，集成过流保护、短路阻断与独立霍尔电流采样，保障整机用电坚不可摧。</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    
+        <div class="hl-card">
+            <div class="hl-title">三叶降噪气动翼尖</div>
+            <div class="hl-desc">三叶低雷诺数特殊翼型，在较低转速下提供充沛推力，人耳感知声学噪声削减4.5dB。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">高动平衡双叶纯碳桨</div>
+            <div class="hl-desc">大倾角微下反翼梢设计，抑制桨尖气流分离，极速工况下推力传递无迟滞。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">4oz加厚沉金分电核心</div>
+            <div class="hl-desc">超低内阻发热，支持12S~14S高电压大电流持续放电，为大载重多旋翼提供纯净电源。</div>
+        </div>
+        
+        <div class="hl-card">
+            <div class="hl-title">全功能地面维护生态</div>
+            <div class="hl-desc">多路智能平衡充电插座与快速诊断接口，满足野外高频次作业时的快速补能需求。</div>
+        </div>
+        
+                </div>
+                
+                <div class="specs-table-box">
+                    <div class="table-head">
+                        <span>ENGINEERING SPECIFICATION TABLE</span>
+                        <span>[STANDARD METRIC UNITS]</span>
+                    </div>
+                    <table class="specs-table">
+                        
+        <tr>
+            <td class="lbl">三叶静音桨规格</td>
+            <td class="val">3-Blade 8.5x4.2 / 10x4.5 (高韧复材)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">双叶碳纤桨规格</td>
+            <td class="val">2-Blade 15x5.5 / 18x6.2 (100%全碳模压)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">分电板持续电流</td>
+            <td class="val">160 A (环境温度 25℃ 持续工作)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">瞬时峰值耐受电流</td>
+            <td class="val">240 A (持续 10 秒)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">输入供电电压范围</td>
+            <td class="val">6S ~ 14S LiPo (22.2V ~ 58.8V)</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">独立BEC降压输出</td>
+            <td class="val">5V/4A, 12V/4A 双路超低纹波滤波</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">平衡充接口协议</td>
+            <td class="val">支持 JST-XH 2S~8S 全通道插针标准</td>
+        </tr>
+        
+        <tr>
+            <td class="lbl">外壳屏蔽材质</td>
+            <td class="val">CNC阳极氧化防电磁辐射铝合金防护外壳</td>
+        </tr>
+        
+                    </table>
+                </div>
+            </div>
+            
+            <div class="reverse-right-col">
+                
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_014944_782.png" alt="航空级高动平衡双叶纯碳纤维螺旋桨" />
+            <div class="caption">航空级高动平衡双叶纯碳纤维螺旋桨</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_002945_219.png" alt="智能分电管理与多通道平衡充电插座模块" />
+            <div class="caption">智能分电管理与多通道平衡充电插座模块</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_020732_614.png" alt="特种远程双天线四旋翼通信巡航构型" />
+            <div class="caption">特种远程双天线四旋翼通信巡航构型</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_004446_698.png" alt="六旋翼工业巡检作业平台带机载任务箱" />
+            <div class="caption">六旋翼工业巡检作业平台带机载任务箱</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_002442_401.png" alt="环形全包围防撞护环室内四旋翼机架" />
+            <div class="caption">环形全包围防撞护环室内四旋翼机架</div>
+        </div>
+        
+        <div class="sub-image-card">
+            <img src="file:///E:/brochure/飞机截图/ScreenShot_2026-10-18_021235_318.png" alt="特种双向复合翼型多旋翼结构透视" />
+            <div class="caption">特种双向复合翼型多旋翼结构透视</div>
+        </div>
+        
+                <div class="aero-quality-badge">
+                    <span>AERO GRADE: <strong>MIL-STD-810H</strong></span>
+                    <span>CARBON: <strong>TORAY T700/T800</strong></span>
+                    <span>LINK: <strong>AES-256 ENCRYPTED</strong></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">REVERSE [详述] · 背面产品深度解析</span>
+            <span>AEROSPACE SYSTEMS ENGINEERING</span>
+            <span class="page-number">PAGE 48 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="page-header">
+            <div class="left-meta">
+                <span class="badge">SEC-99</span>
+                <span>MANUFACTURING & QUALITY ASSURANCE</span>
+            </div>
+            <div class="center-meta">航空制造工艺与极限可靠性测试体系</div>
+            <div class="right-meta">STD: ISO-AS9100D</div>
+        </div>
+        
+        <div class="qa-container">
+            <div style="background:rgba(15,23,42,0.65); border-left:3px solid #00f0ff; padding:3mm 4mm; border-radius:0 4px 4px 0;">
+                <h2 style="font-family:'Orbitron','PingFang SC'; font-size:15pt; color:#ffffff; margin-bottom:1mm;">
+                    航空级精密制造与严苛试验验证标准
+                </h2>
+                <p style="font-size:9pt; line-height:1.5; color:#cbd5e1;">
+                    每一款飞行器从CAD概念草图转化为实体机，必须历经结构力学、气动声学、高低温湿热耐受性及全域电磁兼容等四大维度的军规级严苛考验。依托数字化数控机加、碳纤维热压罐共固化以及硬件在环飞控仿真平台，确保每一架交付的飞行系统在极端严寒、荒漠沙尘与强风恶浪中稳如磐石。
+                </p>
+            </div>
+            
+            <div class="qa-grid">
+                <div class="qa-card">
+                    <div class="qa-step">01</div>
+                    <h3>碳纤维复合材料热压共固化工艺</h3>
+                    <p>采用东丽高强度T700/T800预浸布，在0.6MPa高压与130℃恒温热压罐中一体成型。彻底消除内部微孔隙与分层隐患，相比传统注塑塑料机架结构刚度提升350%，重量降低50%以上。</p>
+                </div>
+                
+                <div class="qa-card">
+                    <div class="qa-step">02</div>
+                    <h3>全温区全天候环境风洞试验</h3>
+                    <p>在大型数字化连续式低速风洞中完成0-40m/s风速连续测试，涵盖8级烈风迎头冲击、侧风悬停及高空紊流切变。在-40℃极寒冰冻与+65℃戈壁暴晒仓内验证动力电池放电与电机轴承耐候性。</p>
+                </div>
+                
+                <div class="qa-card">
+                    <div class="qa-step">03</div>
+                    <h3>军标级电磁兼容 (EMC/EMI) 屏蔽</h3>
+                    <p>全金属机壳与特种导电银漆喷涂屏蔽舱，严格符合MIL-STD-461G标准。隔绝高压输电线路产生的高压工频电场与强磁场谐波，确保GPS/RTK高精度卫星定位与无线遥测跳频链路零掉线。</p>
+                </div>
+                
+                <div class="qa-card">
+                    <div class="qa-step">04</div>
+                    <h3>六自由度 (6-DOF) 硬件在环仿真</h3>
+                    <p>飞控系统在出厂前全面接入六自由度实时仿真转台，历经超过10,000小时的虚拟极端故障注入测试（包括强风暴、电机断桨、传感器单边失效等），自适应控制算法可在毫秒级重构平衡。</p>
+                </div>
+            </div>
+            
+            <div style="background:rgba(11,18,30,0.85); border:1px solid rgba(0,240,255,0.3); border-radius:4px; padding:3mm 5mm; display:flex; justify-content:space-between; align-items:center; margin-top:3mm;">
+                <div style="font-family:'Share Tech Mono'; font-size:8.5pt; color:#38bdf8;">
+                    CERTIFIED LABORATORIES: CNAS L1082 / ILAC-MRA ACCREDITED FLIGHT TESTING FACILITY
+                </div>
+                <div style="font-family:'Orbitron'; font-size:9pt; color:#00f0ff; font-weight:bold;">
+                    PASS RATE: 99.98%
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-footer">
+            <span class="print-indicator">OBVERSE [展面] · 航空制造标准规范</span>
+            <span>QUALITY & RELIABILITY SPECIFICATIONS</span>
+            <span class="page-number">PAGE 49 / 50</span>
+        </div>
+    </div>
+    
+    <div class="page back-cover-page">
+        <div class="tech-grid-overlay"></div>
+        <div class="hud-corner tl"></div>
+        <div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div>
+        <div class="hud-corner br"></div>
+        
+        <div class="back-cover-container">
+            <div class="cover-header-line" style="border-bottom: 1px solid rgba(0,240,255,0.3);">
+                <span>DOCUMENT CONTROL: AGY-AERO-2026-FINAL</span>
+                <span>RESTRICTED ENGINEERING BLUEPRINT</span>
+                <span>GLOBAL ARCHIVE</span>
+            </div>
+            
+            <div class="back-brand-box">
+                <h1>AEROSPACE DYNAMICS</h1>
+                <div class="motto">REDEFINING AUTONOMOUS FLIGHT // 探索天空的无垠边界</div>
+                
+                <div class="back-specs-summary">
+                    <div class="back-stat">
+                        <div class="num">23</div>
+                        <div class="lbl">AERO PLATFORMS</div>
+                    </div>
+                    <div class="back-stat">
+                        <div class="num">46</div>
+                        <div class="lbl">CAD BLUEPRINTS</div>
+                    </div>
+                    <div class="back-stat">
+                        <div class="num">50</div>
+                        <div class="lbl">PAGES ARCHIVE</div>
+                    </div>
+                    <div class="back-stat">
+                        <div class="num">100%</div>
+                        <div class="lbl">CARBON COMPOSITE</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="max-width: 600px; margin: 0 auto; color: #94a3b8; font-size: 8.5pt; line-height: 1.6;">
+                本画册专为单面高精印刷设计。每张纸正面为超清三维模型视图，背面为深度技术规格解析与装配工程解构。通过背对背冷裱粘接或蝴蝶对裱精装工艺装订成册，翻开即可呈现180度全平摊对开阅读体验。
+            </div>
+            
+            <div class="back-legal-box">
+                <div style="color: #38bdf8; margin-bottom: 1mm; font-size: 8.5pt;">
+                    COPYRIGHT &copy; 2026-2027 AEROSPACE DYNAMICS FLIGHT LAB. ALL RIGHTS RESERVED.
+                </div>
+                <div>
+                    CONFIDENTIAL & PROPRIETARY BLUEPRINT SPECIFICATION · UNAUTHORIZED DUPLICATION IS STRICTLY PROHIBITED
+                </div>
+                <div style="margin-top: 2mm; color: #00f0ff; letter-spacing: 2px;">
+                    ISO 9001:2015 · AS9100D · CE · FCC CERTIFIED ADVANCED UNMANNED SYSTEMS
+                </div>
+            </div>
+            
+            <div class="page-footer" style="border-top: none; padding-top: 0;">
+                <span class="print-indicator">REVERSE [封底] · 封底与版权声明</span>
+                <span>FINAL PRINT PAGE</span>
+                <span class="page-number">PAGE 50 / 50 [BACK COVER]</span>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+    </html>
+    

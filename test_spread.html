@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+@page {
+    size: 297mm 210mm;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: #fbfbfd;
+    color: #1d1d1f;
+    -webkit-font-smoothing: antialiased;
+}
+.page {
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    background: #fbfbfd;
+}
+
+/* 奇数页：纯大图展示页 */
+.page-exhibition {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16mm 20mm 14mm 20mm;
+    background: radial-gradient(circle at 50% 48%, #ffffff 0%, #fbfbfd 65%, #f5f5f7 100%);
+}
+.exhibit-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.exhibit-series {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #86868b;
+    text-transform: uppercase;
+}
+.exhibit-cat-pill {
+    font-size: 10px;
+    font-weight: 600;
+    color: #0071e3;
+    background: rgba(0, 113, 227, 0.08);
+    padding: 4px 12px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+}
+.exhibit-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.hero-img-box {
+    max-width: 90%;
+    max-height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+.hero-img-box img {
+    max-width: 100%;
+    max-height: 125mm;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.08));
+    transition: transform 0.3s;
+}
+.hero-pedestal {
+    width: 65%;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
+    margin-top: -10px;
+    z-index: 1;
+}
+.exhibit-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 10px;
+}
+.exhibit-name-block h2 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #1d1d1f;
+}
+.exhibit-name-block p {
+    font-size: 11px;
+    color: #86868b;
+    margin-top: 3px;
+    letter-spacing: 0.5px;
+}
+.exhibit-folio {
+    font-size: 14px;
+    font-weight: 600;
+    color: #86868b;
+    font-variant-numeric: tabular-nums;
+}
+
+/* 偶数页：图文并茂专业理论讲解页 */
+.page-editorial {
+    padding: 14mm 18mm 12mm 18mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fbfbfd;
+}
+.edit-header {
+    margin-bottom: 8px;
+}
+.edit-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.badge-cat {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: #1d1d1f;
+    background: #e5e5ea;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.badge-code {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #0071e3;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    background: rgba(0, 113, 227, 0.08);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.edit-title {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+    line-height: 1.25;
+}
+.edit-tagline {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #0071e3;
+    margin-top: 3px;
+}
+.edit-narrative {
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: #424245;
+    margin-top: 6px;
+    text-align: justify;
+}
+
+/* 理论深度卡片 */
+.theory-card {
+    background: #ffffff;
+    border: 1px solid #e5e5ea;
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    margin: 8px 0;
+}
+.theory-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #f0f0f2;
+    padding-bottom: 6px;
+}
+.theory-card-tag {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #0071e3;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+.theory-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+.theory-body {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 14px;
+    align-items: center;
+}
+.theory-desc {
+    font-size: 10px;
+    line-height: 1.55;
+    color: #515154;
+    text-align: justify;
+}
+.theory-formula-box {
+    margin-top: 8px;
+    background: #f5f5f7;
+    border-left: 3px solid #0071e3;
+    padding: 6px 10px;
+    border-radius: 0 6px 6px 0;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 9.5px;
+    color: #1d1d1f;
+}
+.theory-diagram-box {
+    height: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 底部指标与规格 */
+.edit-bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 14px;
+    align-items: stretch;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e5ea;
+    border-radius: 8px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.stat-val {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+}
+.stat-lbl {
+    font-size: 9.5px;
+    color: #86868b;
+    margin-top: 2px;
+}
+.specs-table {
+    background: #ffffff;
+    border: 1px solid #e5e5ea;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 14px;
+    row-gap: 4px;
+    align-content: center;
+}
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f5f5f7;
+    padding: 3px 0;
+    font-size: 9.5px;
+}
+.spec-lbl {
+    color: #86868b;
+}
+.spec-val {
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.edit-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 8px;
+    margin-top: 6px;
+    font-size: 9.5px;
+    color: #86868b;
+}
+</style>
+</head>
+<body>
+
+<!-- 纯大图展示页 (奇数页 P.005) -->
+<div class="page page-exhibition">
+    <div class="exhibit-top">
+        <div class="exhibit-series">EXHIBIT // 01 · MASTER SERIES</div>
+        <div class="exhibit-cat-pill">智能航拍平台 · Autonomous Aerial Drone</div>
+    </div>
+    <div class="exhibit-hero">
+        <div class="hero-img-box">
+            <img src="file:///e:/brochure/飞机截图/7.jpg" alt="AERO-STREAM 7 // 仿生流线型智能航拍无人机">
+        </div>
+        <div class="hero-pedestal"></div>
+    </div>
+    <div class="exhibit-bottom">
+        <div class="exhibit-name-block">
+            <h2>AERO-STREAM 7 // 仿生流线型智能航拍无人机</h2>
+            <p>Sleek Aerodynamic Smart Aerial Drone — SPEC-STR7</p>
+        </div>
+        <div class="exhibit-folio">005</div>
+    </div>
+</div>
+
+<!-- 理论讲解页 (偶数页 P.006) -->
+<div class="page page-editorial">
+    <div class="edit-header">
+        <div class="edit-badge-row">
+            <span class="badge-cat">智能航拍平台</span>
+            <span class="badge-code">SPEC-STR7</span>
+        </div>
+        <h1 class="edit-title">AERO-STREAM 7 // 仿生流线型智能航拍无人机</h1>
+        <div class="edit-tagline">仿生水滴低阻机身 · 4K三轴增稳机械云台 · 视觉全向自主避障</div>
+        <p class="edit-narrative">AERO-STREAM 7突破了传统多旋翼飞行器棱角分明的工程形态，全机身采用流体动力学优化的一体化注塑微弧曲面外壳。在高速平飞与侧风切变工况下，水滴形流线外壳能显著降低迎风阻力与机体涡流，同时有效隔绝电机高频振动对机载高清光学传感器的干扰。搭载定制的三轴无刷微型直驱增稳云台，配合全向立体双目视觉阵列，在密林穿行与高动态运动追踪中实现丝滑稳定的电影级构图。</p>
+    </div>
+
+    <!-- 理论卡片 -->
+    <div class="theory-card">
+        <div class="theory-card-header">
+            <span class="theory-card-tag">◈ AERODYNAMICS & FLIGHT PHYSICS // 气动与飞行物理</span>
+            <span class="theory-title">空气动力学 · 水滴形低阻附面层与流噪抑制理论</span>
+        </div>
+        <div class="theory-body">
+            <div>
+                <p class="theory-desc">水滴形曲面在低速气流中具备近乎完美的顺压梯度分布，能将气流分离点显著推后至机尾尾梢。根据普朗特附面层流动理论，保持层流流动可将全机压差阻力降低达42%。平滑过渡的机臂与壳体连接区消除了局部微涡流聚集，使高速巡航时的气动宽带噪声声压级降低6.5dB，大幅提升航拍时的隐蔽度与声学品质。</p>
+                <div class="theory-formula-box">
+                    <span style="color:#86868b; margin-right:4px;">GOVERNING EQ:</span>
+                    <strong>C_d = D / (0.5 * rho * v^2 * A) = 0.045</strong>
+                </div>
+            </div>
+            <div class="theory-diagram-box">
+                <svg viewBox="0 0 460 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="background:#fbfbfd; border-radius:12px; border:1px solid #e5e5ea;">
+        <defs>
+            <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0071e3" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#0071e3" stop-opacity="0.02"/>
+            </linearGradient>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0071e3" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#34c759" stop-opacity="0.8"/>
+            </linearGradient>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0071e3"/>
+            </marker>
+            <marker id="arrowDark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1d1d1f"/>
+            </marker>
+            <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#34c759"/>
+            </marker>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0f0f2" stroke-width="0.8"/>
+            </pattern>
+        </defs>
+        <rect width="460" height="200" fill="url(#grid)" rx="12"/>
+        
+        <!-- 流线 -->
+        <path d="M 20 50 C 120 40, 200 60, 440 65" fill="none" stroke="#0071e3" stroke-width="1.8" stroke-dasharray="6 3"/>
+        <path d="M 20 80 C 140 70, 220 85, 440 90" fill="none" stroke="#0071e3" stroke-width="2"/>
+        <path d="M 20 150 C 140 160, 240 145, 440 140" fill="none" stroke="#0071e3" stroke-width="2"/>
+        <path d="M 20 180 C 120 190, 220 170, 440 165" fill="none" stroke="#0071e3" stroke-width="1.8" stroke-dasharray="6 3"/>
+        <!-- 水滴形截面 -->
+        <path d="M 120 115 C 120 80, 200 75, 340 115 C 200 155, 120 150, 120 115 Z" fill="url(#blueGrad)" stroke="#1d1d1f" stroke-width="2.5"/>
+        <!-- 附面层与滞止点 -->
+        <circle cx="120" cy="115" r="4" fill="#0071e3"/>
+        <text x="75" y="119" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" fill="#0071e3">前缘滞止点</text>
+        <line x1="340" y1="115" x2="410" y2="115" stroke="#34c759" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+        <text x="350" y="105" font-family="-apple-system,sans-serif" font-size="10" fill="#34c759" font-weight="600">层流无涡尾流 (Cd=0.045)</text>
+        <text x="175" y="118" font-family="-apple-system,sans-serif" font-size="11" fill="#1d1d1f" font-weight="600">仿生低阻附面层曲面</text>
+        
+        </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部指标与规格 -->
+    <div class="edit-bottom-grid">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-val">46 min</span>
+                <span class="stat-lbl">单次最长续航</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val">2000 万</span>
+                <span class="stat-lbl">1英寸CMOS像素</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val">12 m/s</span>
+                <span class="stat-lbl">最大抗风速</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val">920 g</span>
+                <span class="stat-lbl">轻量整备重量</span>
+            </div>
+        </div>
+
+        <div class="specs-table">
+            <div class="spec-row"><span class="spec-lbl">对角轴距</span><span class="spec-val">350 mm</span></div>
+            <div class="spec-row"><span class="spec-lbl">空机全重</span><span class="spec-val">920 g (含电池云台)</span></div>
+            <div class="spec-row"><span class="spec-lbl">影像系统</span><span class="spec-val">1英寸大底 4K 60fps</span></div>
+            <div class="spec-row"><span class="spec-lbl">续航时间</span><span class="spec-val">46 min 持续巡航</span></div>
+            <div class="spec-row"><span class="spec-lbl">抗风能力</span><span class="spec-val">6 级风 (12 m/s)</span></div>
+            <div class="spec-row"><span class="spec-lbl">避障感知</span><span class="spec-val">全向双目视觉 + 下视TOF</span></div>
+            <div class="spec-row"><span class="spec-lbl">图传测控</span><span class="spec-val">15 km 低延迟高清图传</span></div>
+            <div class="spec-row"><span class="spec-lbl">机身外壳</span><span class="spec-val">高韧度聚碳酸酯仿生注塑</span></div>
+        </div>
+    </div>
+
+    <div class="edit-footer">
+        <span>AEROSPACE DYNAMICS & AUTONOMOUS FLIGHT SYSTEMS // MASTER BLUEPRINT</span>
+        <span style="font-weight:600; font-variant-numeric:tabular-nums;">006</span>
+    </div>
+</div>
+
+</body>
+</html>

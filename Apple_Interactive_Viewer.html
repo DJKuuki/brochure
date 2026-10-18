@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>未来飞行 · 航空航天飞行系统工程图鉴 (Swiss Monograph 98P Viewer)</title>
+<style>
+:root {
+    --bg-color: #141416;
+    --stage-bg: #18181b;
+    --text-primary: #f5f5f7;
+    --text-secondary: #8e8e93;
+    --accent: #2997ff;
+    --spine-color: #d2d2d7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg-color);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.top-nav {
+    height: 52px;
+    background: rgba(20, 20, 22, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+}
+.brand-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.brand-badge {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    color: #fff;
+    background: #0071e3;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: "SF Mono", monospace;
+}
+.brand-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: var(--text-primary);
+}
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.btn-control {
+    background: rgba(255, 255, 255, 0.08);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.btn-control:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+.btn-control.active {
+    background: #0071e3;
+    border-color: #0071e3;
+}
+.page-indicator {
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+    font-family: "SF Mono", monospace;
+}
+.page-indicator strong {
+    color: #fff;
+}
+.stage-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--stage-bg);
+    overflow: hidden;
+    padding: 16px;
+}
+.spread-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    max-width: 96vw;
+    max-height: 87vh;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.3);
+    background: var(--spine-color);
+}
+.page-view {
+    max-height: 87vh;
+    max-width: calc(48vw - 8px);
+    object-fit: contain;
+    background: #ffffff;
+    display: block;
+    user-select: none;
+}
+.single-mode .page-view {
+    max-width: 90vw;
+}
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 50;
+    user-select: none;
+}
+.nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-50%) scale(1.05);
+}
+.nav-arrow.prev { left: 24px; }
+.nav-arrow.next { right: 24px; }
+.bottom-drawer {
+    height: 80px;
+    background: rgba(18, 18, 20, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+.thumb-item {
+    height: 56px;
+    aspect-ratio: 297 / 210;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    opacity: 0.55;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    position: relative;
+    background: #ffffff;
+}
+.thumb-item:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}
+.thumb-item.active {
+    border-color: #0071e3;
+    opacity: 1;
+}
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.thumb-folio {
+    position: absolute;
+    bottom: 2px;
+    right: 3px;
+    font-size: 8px;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 1px 3px;
+    font-family: monospace;
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+    <div class="brand-title">
+        <span class="brand-badge">GREET AERO</span>
+        <span class="brand-name">未来飞行 · 航空航天飞行系统工程图鉴 (Swiss Monograph White 98P)</span>
+    </div>
+
+    <div class="nav-controls">
+        <button class="btn-control active" id="btnSpread" onclick="setViewMode('spread')">
+            <span>📖</span> 跨页对展阅读 (Spread View)
+        </button>
+        <button class="btn-control" id="btnSingle" onclick="setViewMode('single')">
+            <span>📄</span> 单页精细检视 (Single View)
+        </button>
+        <div class="page-indicator" id="pageIndicator">
+            页面: <strong>001 / 098</strong>
+        </div>
+        <a class="btn-control" href="Aero_UAV_Master_Catalog_AppleStyle_98P.pdf" download style="text-decoration:none;">
+            <span>⬇</span> 下载典藏印刷 PDF
+        </a>
+    </div>
+</div>
+
+<div class="stage-container" id="stageContainer">
+    <div class="nav-arrow prev" onclick="prevPage()">‹</div>
+    
+    <div class="spread-wrapper" id="spreadWrapper">
+        <img src="brochure_pages_v2/page_001.png" class="page-view" id="leftPage" alt="Page Left">
+        <img src="brochure_pages_v2/page_002.png" class="page-view" id="rightPage" alt="Page Right" style="display:none;">
+    </div>
+
+    <div class="nav-arrow next" onclick="nextPage()">›</div>
+</div>
+
+<div class="bottom-drawer" id="thumbDrawer"></div>
+
+<script>
+const TOTAL_PAGES = 98;
+let currentPage = 1;
+let viewMode = 'spread';
+
+function initThumbs() {
+    const drawer = document.getElementById('thumbDrawer');
+    let html = '';
+    for (let i = 1; i <= TOTAL_PAGES; i++) {
+        const pNum = String(i).padStart(3, '0');
+        html += `
+        <div class="thumb-item ${i === 1 ? 'active' : ''}" id="thumb-${i}" onclick="jumpToPage(${i})">
+            <img src="brochure_pages_v2/page_${pNum}.png" loading="lazy" alt="P.${pNum}">
+            <span class="thumb-folio">${pNum}</span>
+        </div>
+        `;
+    }
+    drawer.innerHTML = html;
+}
+
+function updateView() {
+    const leftImg = document.getElementById('leftPage');
+    const rightImg = document.getElementById('rightPage');
+    const indicator = document.getElementById('pageIndicator');
+    const spreadWrapper = document.getElementById('spreadWrapper');
+
+    document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active'));
+
+    if (viewMode === 'single') {
+        spreadWrapper.classList.add('single-mode');
+        rightImg.style.display = 'none';
+        leftImg.src = `brochure_pages_v2/page_${String(currentPage).padStart(3, '0')}.png`;
+        indicator.innerHTML = `单页检视: <strong>${String(currentPage).padStart(3, '0')} / 098</strong>`;
+        const thumb = document.getElementById(`thumb-${currentPage}`);
+        if (thumb) {
+            thumb.classList.add('active');
+            thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+    } else {
+        spreadWrapper.classList.remove('single-mode');
+        if (currentPage === 1) {
+            rightImg.style.display = 'none';
+            leftImg.src = 'brochure_pages_v2/page_001.png';
+            indicator.innerHTML = `封面: <strong>001 / 098</strong> (GREET AERO)`;
+            const thumb = document.getElementById('thumb-1');
+            if (thumb) { thumb.classList.add('active'); thumb.scrollIntoView({ behavior: 'smooth', inline: 'center' }); }
+        } else if (currentPage >= TOTAL_PAGES) {
+            rightImg.style.display = 'none';
+            leftImg.src = `brochure_pages_v2/page_098.png`;
+            indicator.innerHTML = `封底: <strong>098 / 098</strong>`;
+            const thumb = document.getElementById('thumb-98');
+            if (thumb) { thumb.classList.add('active'); thumb.scrollIntoView({ behavior: 'smooth', inline: 'center' }); }
+        } else {
+            let leftP = currentPage % 2 === 0 ? currentPage : currentPage - 1;
+            let rightP = leftP + 1;
+            leftImg.src = `brochure_pages_v2/page_${String(leftP).padStart(3, '0')}.png`;
+            rightImg.src = `brochure_pages_v2/page_${String(rightP).padStart(3, '0')}.png`;
+            rightImg.style.display = 'block';
+            indicator.innerHTML = `跨页对展: <strong>${String(leftP).padStart(3, '0')} — ${String(rightP).padStart(3, '0')}</strong> / 098`;
+            const thumbL = document.getElementById(`thumb-${leftP}`);
+            if (thumbL) { thumbL.classList.add('active'); thumbL.scrollIntoView({ behavior: 'smooth', inline: 'center' }); }
+            const thumbR = document.getElementById(`thumb-${rightP}`);
+            if (thumbR) thumbR.classList.add('active');
+        }
+    }
+}
+
+function setViewMode(mode) {
+    viewMode = mode;
+    document.getElementById('btnSpread').classList.toggle('active', mode === 'spread');
+    document.getElementById('btnSingle').classList.toggle('active', mode === 'single');
+    updateView();
+}
+
+function prevPage() {
+    if (viewMode === 'single') {
+        if (currentPage > 1) currentPage--;
+    } else {
+        if (currentPage === 1) return;
+        if (currentPage <= 3) currentPage = 1;
+        else currentPage -= 2;
+    }
+    updateView();
+}
+
+function nextPage() {
+    if (viewMode === 'single') {
+        if (currentPage < TOTAL_PAGES) currentPage++;
+    } else {
+        if (currentPage === 1) currentPage = 2;
+        else if (currentPage >= TOTAL_PAGES - 1) currentPage = TOTAL_PAGES;
+        else currentPage += 2;
+    }
+    updateView();
+}
+
+function jumpToPage(p) {
+    currentPage = p;
+    updateView();
+}
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        nextPage();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevPage();
+    }
+});
+
+initThumbs();
+updateView();
+</script>
+
+</body>
+</html>
